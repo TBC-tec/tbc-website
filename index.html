@@ -1,164 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title><!-- Page‑specific title here --></title>
-
-  <!-- Preload & stylesheets -->
-  <link rel="preload" href="assets/css/main.css?v=1" as="style"/>
-  <link rel="stylesheet" href="assets/css/main.css?v=1"/>
-  <link rel="stylesheet" href="assets/css/site-enhancements.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Business – Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Simple fade effect for audio */
+    #musicToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: #0078d4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
+
+  <header>
+    <h1>Welcome to Our Website</h1>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="portfolio/project1.html">Portfolio</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Digital Solutions That Drive Results</h1>
-      <p>We help small businesses grow through smart design, clear messaging, and customer-centric strategy.</p>
-      <a href="contact.html" class="cta-button">Get a Quote</a>
-    </section>
-
-    <!-- Trust Section -->
-    <section class="trust">
-      <h2>Trusted by Businesses Across the U.S.</h2>
-      <div class="logos">
-        <img src="assets/images/logo1.png" alt="Client 1" />
-        <img src="assets/images/logo2.png" alt="Client 2" />
-        <img src="assets/images/logo3.png" alt="Client 3" />
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-      <h2>What We Do</h2>
-      <div class="service-grid">
-        <div class="service-card">
-          <h3>Web Design</h3>
-          <p>Modern, responsive websites that build trust and convert visitors.</p>
-        </div>
-        <div class="service-card">
-          <h3>Branding</h3>
-          <p>Clear, compelling identity that sets you apart in a crowded market.</p>
-        </div>
-        <div class="service-card">
-          <h3>SEO & Strategy</h3>
-          <p>Get found, get leads, and grow with data-driven digital strategy.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-      <h2>What Our Clients Say</h2>
-      <blockquote>
-        “TBC transformed our online presence. We went from invisible to irresistible.”
-        <cite>— Sarah M., Founder of BrightPath Consulting</cite>
-      </blockquote>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-final">
-      <h2>Ready to Elevate Your Business?</h2>
-      <a href="contact.html" class="cta-button">Let’s Talk</a>
+    <section>
+      <h2>Inspiring Trust. Driving Growth.</h2>
+      <p>Your customer‑centric solutions start here.</p>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 TBC. All rights reserved.</p>
-  </footer>
+  <!-- Background Music -->
+  <audio id="bgMusic" src="assets/music/keys-of-moon-cheer-up(chosic.com).mp3" preload="auto" loop></audio>
+  <button id="musicToggle">Play Music</button>
 
-  <!-- Smooth Scroll Script -->
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href'))
-          .scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
-
-  <!-- Site effects -->
-  <script src="assets/js/site-effects.js"></script>
-
-  <!-- Background Music Player -->
-  <audio id="bgMusic" src="assets/music/spark-of-inspiration.mp3" preload="auto" loop></audio>
-  <button id="musicToggle" aria-label="Toggle background music" aria-pressed="false">🔇</button>
-
-  <!-- Music Toggle Script with Fade-In & Fade-Out -->
-  <script>
-    const bgMusic = document.getElementById('bgMusic');
-    const musicToggle = document.getElementById('musicToggle');
-    let isPlaying = false;
-
-    // Start at zero volume
-    bgMusic.volume = 0;
+    const audio = document.getElementById('bgMusic');
+    const toggleBtn = document.getElementById('musicToggle');
+    let fadeInterval;
 
     function fadeAudio(targetVolume, callback) {
-      const step = 0.05 * (targetVolume > bgMusic.volume ? 1 : -1);
-      const fadeInterval = setInterval(() => {
-        if ((step > 0 && bgMusic.volume < targetVolume) ||
-            (step < 0 && bgMusic.volume > targetVolume)) {
-          bgMusic.volume = Math.min(Math.max(bgMusic.volume + step, 0), 1);
-        } else {
+      clearInterval(fadeInterval);
+      fadeInterval = setInterval(() => {
+        if (Math.abs(audio.volume - targetVolume) <= 0.01) {
+          audio.volume = targetVolume;
           clearInterval(fadeInterval);
           if (callback) callback();
+        } else {
+          audio.volume += (targetVolume > audio.volume ? 0.01 : -0.01);
         }
-      }, 100);
+      }, 20);
     }
 
-    musicToggle.addEventListener('click', () => {
-      if (isPlaying) {
-        fadeAudio(0, () => bgMusic.pause());
-        musicToggle.textContent = '🔇';
-        musicToggle.setAttribute('aria-pressed', 'false');
-        isPlaying = false;
-      } else {
-        bgMusic.play().then(() => {
+    toggleBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.volume = 0;
+        audio.play().then(() => {
           fadeAudio(1);
-          musicToggle.textContent = '🔊';
-          musicToggle.setAttribute('aria-pressed', 'true');
-          isPlaying = true;
-        }).catch(err => console.log(err));
-      }
-    });
-
-    // Fade out on page unload for smooth stop
-    window.addEventListener('beforeunload', (event) => {
-      if (isPlaying) {
-        fadeAudio(0);
+          toggleBtn.textContent = 'Pause Music';
+        }).catch(err => console.error(err));
+      } else {
+        fadeAudio(0, () => audio.pause());
+        toggleBtn.textContent = 'Play Music';
       }
     });
   </script>
 
-  <!-- Music Toggle Styling -->
-  <style>
-    #musicToggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 0.75rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      z-index: 1000;
-      transition: background 0.3s ease;
-    }
-    #musicToggle:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-  </style>
 </body>
 </html>
