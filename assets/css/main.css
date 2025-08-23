@@ -171,3 +171,23 @@ body.light{background: radial-gradient(900px 450px at 15% 10%, rgba(142,45,226,.
 .toggle{background:#1e2333; color:#fff; padding:8px 12px; border-radius:10px; margin-left:4px; border:1px solid rgba(255,255,255,.08)}
 .toggle.light{background:#eceff7; color:#1c2030; border:1px solid rgba(0,0,0,.08)}
 .hero{padding:4rem 2rem;text-align:center;background:linear-gradient(180deg,#f7f9ff,#fff)}.hero h1{font-size:clamp(2rem,3.5vw,3rem);margin-bottom:1rem;color:#0b5cff}.hero p{font-size:1.1rem;color:#555;margin-bottom:2rem}.cta-button{display:inline-block;background-color:#0b5cff;color:#fff;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;transition:background .3s ease}.cta-button:hover{background-color:#0637a3}.trust{padding:3rem 2rem;text-align:center;background-color:#f0f2f5}.trust h2{margin-bottom:2rem;font-size:1.75rem}.logos{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}.logos img{max-width:120px;height:auto;opacity:.8;transition:opacity .3s ease}.logos img:hover{opacity:1}.services{padding:4rem 2rem;background-color:#fff;text-align:center}.services h2{font-size:1.75rem;margin-bottom:2rem}.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}.service-card{background-color:#f9f9f9;padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:transform .3s ease}.service-card:hover{transform:translateY(-4px)}.service-card h3{margin-bottom:.5rem;color:#0b5cff}.service-card p{color:#555}.testimonials{padding:3rem 2rem;background-color:#f7f9ff;text-align:center}.testimonials h2{font-size:1.75rem;margin-bottom:1.5rem}.testimonials blockquote{font-style:italic;color:#333;max-width:700px;margin:0 auto}.testimonials cite{display:block;margin-top:1rem;font-weight:600;color:#0b5cff}.cta-final{padding:3rem 2rem;text-align:center;background-color:#0b5cff;color:#fff}.cta-final h2{font-size:1.75rem;margin-bottom:1rem}.cta-final .cta-button{background-color:#fff;color:#0b5cff;border:2px solid #fff}.cta-final .cta-button:hover{background-color:#e6e6ff;color:#0637a3}
+/* --- HC Micro-Tweaks --- */
+
+/* 1. Hero height + vertical centering */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 2. Larger, more confident client logos */
+.logos img {
+  max-width: 150px;
+}
+
+/* 3. Footer refinement */
+footer {
+  font-size: 0.9rem;
+  color: #777;
+}
