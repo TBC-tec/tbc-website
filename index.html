@@ -4,74 +4,157 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Business – Home</title>
-  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css?v=1" />
+  <link rel="stylesheet" href="assets/css/site-enhancements.css" />
+
+  <!-- Brand-aligned toggle styling -->
   <style>
-    /* Simple fade effect for audio */
     #musicToggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      padding: 10px 15px;
-      background: #0078d4;
+      background: linear-gradient(135deg, #ff7a18, #8e2de2);
       color: #fff;
       border: none;
-      border-radius: 5px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
       cursor: pointer;
       font-size: 14px;
+      z-index: 1000;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    #musicToggle:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to Our Website</h1>
+  <header class="site-header">
     <nav>
-      <a href="index.html">Home</a>
-      <a href="pages/about.html">About</a>
-      <a href="pages/contact.html">Contact</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="portfolio/project1.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section>
-      <h2>Inspiring Trust. Driving Growth.</h2>
-      <p>Your customer‑centric solutions start here.</p>
+    <section class="hero">
+      <h1>Digital Solutions That Drive Results</h1>
+      <p>We help small businesses grow through smart design, clear messaging, and customer-centric strategy.</p>
+      <a href="contact.html" class="cta-button">Get a Quote</a>
+    </section>
+
+    <section class="trust">
+      <h2>Trusted by Businesses Across the U.S.</h2>
+      <div class="logos">
+        <img src="assets/images/logo1.png" alt="Client 1" />
+        <img src="assets/images/logo2.png" alt="Client 2" />
+        <img src="assets/images/logo3.png" alt="Client 3" />
+      </div>
+    </section>
+
+    <section class="services">
+      <h2>What We Do</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Web Design</h3>
+          <p>Modern, responsive websites that build trust and convert visitors.</p>
+        </div>
+        <div class="service-card">
+          <h3>Branding</h3>
+          <p>Clear, compelling identity that sets you apart in a crowded market.</p>
+        </div>
+        <div class="service-card">
+          <h3>SEO & Strategy</h3>
+          <p>Get found, get leads, and grow with data-driven digital strategy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Our Clients Say</h2>
+      <blockquote>
+        “TBC transformed our online presence. We went from invisible to irresistible.”
+        <cite>— Sarah M., Founder of BrightPath Consulting</cite>
+      </blockquote>
+    </section>
+
+    <section class="cta-final">
+      <h2>Ready to Elevate Your Business?</h2>
+      <a href="contact.html" class="cta-button">Let’s Talk</a>
     </section>
   </main>
 
-  <!-- Background Music -->
-  <audio id="bgMusic" src="assets/music/keys-of-moon-cheer-up(chosic.com).mp3" preload="auto" loop></audio>
-  <button id="musicToggle">Play Music</button>
+  <footer>
+    <p>&copy; 2025 TBC. All rights reserved.</p>
+  </footer>
 
+  <!-- Smooth Scroll Script -->
   <script>
-    const audio = document.getElementById('bgMusic');
-    const toggleBtn = document.getElementById('musicToggle');
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href'))
+          .scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <!-- Site effects -->
+  <script src="assets/js/site-effects.js"></script>
+
+  <!-- Background Music Player -->
+  <audio id="bgMusic" src="assets/music/keys-of-moon-cheer-up(chosic.com).mp3" preload="auto" loop></audio>
+  <button id="musicToggle" aria-label="Toggle background music" aria-pressed="false">Play Music</button>
+
+  <!-- Music Toggle Script with Fade-In & Fade-Out -->
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    let isPlaying = false;
     let fadeInterval;
 
     function fadeAudio(targetVolume, callback) {
       clearInterval(fadeInterval);
       fadeInterval = setInterval(() => {
-        if (Math.abs(audio.volume - targetVolume) <= 0.01) {
-          audio.volume = targetVolume;
+        if (Math.abs(bgMusic.volume - targetVolume) <= 0.01) {
+          bgMusic.volume = targetVolume;
           clearInterval(fadeInterval);
           if (callback) callback();
         } else {
-          audio.volume += (targetVolume > audio.volume ? 0.01 : -0.01);
+          bgMusic.volume += (targetVolume > bgMusic.volume ? 0.01 : -0.01);
         }
       }, 20);
     }
 
-    toggleBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.volume = 0;
-        audio.play().then(() => {
+    musicToggle.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.volume = 0;
+        bgMusic.play().then(() => {
           fadeAudio(1);
-          toggleBtn.textContent = 'Pause Music';
+          musicToggle.textContent = 'Pause Music';
+          musicToggle.setAttribute('aria-pressed', 'true');
+          isPlaying = true;
         }).catch(err => console.error(err));
       } else {
-        fadeAudio(0, () => audio.pause());
-        toggleBtn.textContent = 'Play Music';
+        fadeAudio(0, () => {
+          bgMusic.pause();
+          musicToggle.textContent = 'Play Music';
+          musicToggle.setAttribute('aria-pressed', 'false');
+          isPlaying = false;
+        });
       }
+    });
+
+    window.addEventListener('beforeunload', () => {
+      if (isPlaying) fadeAudio(0);
     });
   </script>
 
