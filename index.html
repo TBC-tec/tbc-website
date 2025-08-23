@@ -1,93 +1,88 @@
-
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Total Business Concepts</title>
-<link rel="stylesheet" href="/assets/css/main.css?v=1.0.0">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Home • Total Business Concepts</title>
+<link rel="preload" href="assets/css/main.css?v=1" as="style"/>
+<link rel="stylesheet" href="assets/css/main.css?v=1"/>
 </head><body>
 
-<nav>
-  <div class="brand">
-    <a href="/index.html"><img src="assets/images/flame.gif" alt="TBC Flame" /></a>
-    <div class="name">Total Business Concepts</div>
-    <span class="tag" style="margin-left:10px">Web • IT • PM</span>
-  </div>
-  <div class="menu">
-    <a class="btn" href="/index.html">Home</a>
-    <a class="btn btn-outline" href="/about.html">Our Story</a>
-    <div style="position:relative">
-      <button id="servicesDD" class="btn btn-outline">Services ▾</button>
-      <div id="servicesMenu" class="card" style="display:none;position:absolute;right:0;top:46px;width:260px">
-        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/website-design.html">Website Design & Dev</a>
-        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/it-consulting.html">IT Consulting</a>
-        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/project-management.html">Project Management</a>
-        <a class="btn btn-outline" style="width:100%" href="/pages/services/digital-marketing.html">Digital Marketing</a>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="TBC Home">
+        <img src="assets/images/tbc-mark.svg" alt="TBC Mark"/>
+        <strong>Total Business Concepts</strong>
+      </a>
+      <div class="nav-links">
+        <a class="button" href="index.html">Home</a>
+        <a class="button" href="about.html">Our Story</a>
+        <div class="dropdown">
+          <a class="button" href="services.html">Services ▾</a>
+          <div class="dropdown-menu" role="menu">
+            <a href="services/website-design.html">Website Design & Development</a>
+            <a href="services/it-consulting.html">IT Consulting</a>
+            <a href="services/project-management.html">Project Management</a>
+            <a href="services/digital-marketing.html">Digital Marketing</a>
+          </div>
+        </div>
+        <a class="button" href="portfolio/index.html">Portfolio</a>
+        <a class="button" href="contact.html">Contact</a>
+        <button class="toggle" id="themeToggle" title="Toggle theme">☾</button>
+        <button class="toggle" id="musicToggle" title="Toggle music">🔇</button>
       </div>
-      <script>document.getElementById('servicesMenu').classList.add('dropdown'); document.querySelector('#servicesMenu').style.display='none'; document.querySelector('#servicesMenu').classList.toggle = function(){};</script>
     </div>
-    <a class="btn btn-outline" href="/portfolio/index.html">Portfolio</a>
-    <a class="btn btn-outline" href="/contact.html">Contact</a>
-    <button id="themeToggle" class="btn btn-outline" title="Theme">☾/☀︎</button>
-    <button id="musicToggle" class="btn" title="Music">🔇</button>
-  </div>
-</nav>
-<div id="lightbox" class="lightbox"><img src="" alt="preview"/></div>
-<div id="toTop" class="arrow">↑</div>
-<div id="toBottom" class="arrow">↓</div>
-<script>
-const sm = document.getElementById('servicesMenu');
-const sdd = document.getElementById('servicesDD');
-if(sdd) sdd.onclick = (e)=>{ e.stopPropagation(); sm.style.display = sm.style.display==='block'?'none':'block'; };
-document.addEventListener('click',()=>{ if(sm) sm.style.display='none'; });
-</script>
+  </nav>
 
-<div class="hero">
-  <div>
-    <div class="tag">Design • Development • IT • PM</div>
-    <h1>Total Business Concepts</h1>
-    <p>Propel your business forward with cutting‑edge web experiences, intelligent IT consulting, and disciplined project management. We blend bold visuals with measurable outcomes.</p>
-    <div style="display:flex; gap:10px; margin-top:16px">
-      <a class="btn" href="/portfolio/index.html">View Portfolio</a>
-      <a class="btn btn-outline" href="/contact.html">Contact Us</a>
+
+  <header class="hero">
+    <div class="reveal" style="transition:all .6s ease; opacity:0; transform:translateY(12px)">
+      <h1>Build the Digital Engine That Grows Your Business</h1>
+      <p>We design modern, high‑performing websites and systems that convert. From web design to IT consulting and project management, we combine clarity, speed, and measurable impact.</p>
+      <div class="badges">
+        <span class="badge">Web Design</span><span class="badge">IT Consulting</span><span class="badge">Project Management</span><span class="badge">Digital Marketing</span>
+      </div>
+      <div class="actions">
+        <a class="button" href="portfolio/index.html">View Portfolio</a>
+        <a class="button" href="contact.html">Contact Us</a>
+      </div>
     </div>
-  </div>
-  <div class="card" style="text-align:center">
-    <img src="/assets/images/flame.gif" alt="TBC Flame" style="width:60%;max-width:340px">
-    <p class="caption">Realistic flame GIF—smaller, refined, and color‑matched to our brand gradient.</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2 class="h2">What We Do</h2>
-  <div class="grid-3">
-    <div class="card">
-      <h3>Website Design & Development</h3>
-      <p class="caption">Memorable, fast, and scalable experiences that convert.</p>
+    <div class="hero-art reveal" style="opacity:0; transform:translateY(12px); transition:all .6s .08s ease">
+      <img src="assets/images/flame.gif?v=1" alt="TBC Flame"/>
     </div>
-    <div class="card">
-      <h3>IT Consulting</h3>
-      <p class="caption">Cloud, security, and integration with business impact.</p>
+  </header>
+  <section class="section">
+    <h2>Services</h2>
+    <p class="lead">Straight to the point — practical, results‑oriented solutions that accelerate growth.</p>
+    <div class="grid cols-3">
+      <a class="card" href="services/website-design.html"><h3>Website Design & Development</h3><p>Conversion‑focused sites engineered for speed, SEO, and brand impact.</p></a>
+      <a class="card" href="services/it-consulting.html"><h3>IT Consulting</h3><p>From cloud migration to cybersecurity — modernize with confidence.</p></a>
+      <a class="card" href="services/project-management.html"><h3>Project Management</h3><p>Agile, transparent delivery that keeps scope, budget, and timelines on track.</p></a>
     </div>
-    <div class="card">
-      <h3>Project Management</h3>
-      <p class="caption">On‑time, on‑budget execution with clarity.</p>
+  </section>
+  <section class="section">
+    <h2>Recent Work</h2>
+    <p class="lead">A few snapshots from our portfolio. Hover to preview — click for details.</p>
+    <div class="portfolio-grid">
+      <a class="portfolio-item" href="portfolio/project1.html"><img src="assets/images/project1.jpg" alt="High-Impact Corporate Websites" /><span class="portfolio-caption">High-Impact Corporate Websites</span></a><a class="portfolio-item" href="portfolio/project2.html"><img src="assets/images/project2.jpg" alt="Revenue-Driven E-Commerce Platforms" /><span class="portfolio-caption">Revenue-Driven E-Commerce Platforms</span></a><a class="portfolio-item" href="portfolio/project3.html"><img src="assets/images/project3.jpg" alt="Custom CMS Solutions" /><span class="portfolio-caption">Custom CMS Solutions</span></a><a class="portfolio-item" href="portfolio/project4.html"><img src="assets/images/project4.jpg" alt="Mobile-Optimized Business Apps" /><span class="portfolio-caption">Mobile-Optimized Business Apps</span></a><a class="portfolio-item" href="portfolio/project5.html"><img src="assets/images/project5.jpg" alt="SEO & Performance Optimization" /><span class="portfolio-caption">SEO & Performance Optimization</span></a><a class="portfolio-item" href="portfolio/project6.html"><img src="assets/images/project6.jpg" alt="Seamless Cloud Migration" /><span class="portfolio-caption">Seamless Cloud Migration</span></a>
     </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-inner">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/images/tbc-mark.svg" width="22" height="22" alt="TBC"/>
+        <span>© 2025 Total Business Concepts</span>
+      </div>
+      <div class="footer-right">
+        <img src="assets/images/flame.gif?v=1" alt="" style="height:26px; width:auto; opacity:.85"/>
+      </div>
+    </div>
+  </footer>
+  <div class="scroll-arrows">
+    <button id="toTop" aria-label="Scroll to top">↑</button>
+    <button id="toBottom" aria-label="Scroll to bottom">↓</button>
   </div>
-</div>
+  <audio id="bgMusic" src="assets/music/ambient.wav" loop playsinline></audio>
+  <div class="lightbox" aria-hidden="true"><img alt=""/></div>
+  <script src="assets/js/main.js?v=1"></script>
 
-<div class="section">
-  <hr class="sep">
-  <h2 class="h2">Featured Work</h2>
-  <div class="gallery">
-    <div class="tile"><img src="/assets/images/project1.jpg" data-lightbox="/assets/images/project1.jpg" alt="Project 1"><div class="cap">High-Impact Corporate Websites</div></div><div class="tile"><img src="/assets/images/project2.jpg" data-lightbox="/assets/images/project2.jpg" alt="Project 2"><div class="cap">Revenue-Driven E-Commerce Platforms</div></div><div class="tile"><img src="/assets/images/project3.jpg" data-lightbox="/assets/images/project3.jpg" alt="Project 3"><div class="cap">Custom CMS Solutions</div></div><div class="tile"><img src="/assets/images/project4.jpg" data-lightbox="/assets/images/project4.jpg" alt="Project 4"><div class="cap">Mobile-Optimized Business Apps</div></div><div class="tile"><img src="/assets/images/project5.jpg" data-lightbox="/assets/images/project5.jpg" alt="Project 5"><div class="cap">SEO & Performance Optimization</div></div><div class="tile"><img src="/assets/images/project6.jpg" data-lightbox="/assets/images/project6.jpg" alt="Project 6"><div class="cap">Seamless Cloud Migration</div></div>
-  </div>
-  <div style="margin-top:14px"><a class="btn" href="/portfolio/index.html">Explore Portfolio</a></div>
-</div>
-
-
-<footer class="section">
-  <div>© Total Business Concepts — All rights reserved.</div>
-  <img src="/assets/images/flame.gif" alt="Flame small"/>
-</footer>
-
-<script src="/assets/js/main.js?v=1.0.0"></script>
 </body></html>

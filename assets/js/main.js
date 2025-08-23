@@ -1,32 +1,80 @@
 
-// theme toggle
-const themeBtn = document.querySelector('#themeToggle');
-function setTheme(t){ document.body.classList.toggle('light', t==='light'); localStorage.setItem('tbc-theme', t) }
-const stored = localStorage.getItem('tbc-theme') || 'dark'; setTheme(stored);
-themeBtn?.addEventListener('click', ()=> setTheme(document.body.classList.contains('light')?'dark':'light'));
+(function(){
+  const qs = (s, el=document)=>el.querySelector(s);
+  const qa = (s, el=document)=>[...el.querySelectorAll(s)];
+  const root = document.documentElement;
+  const body = document.body;
 
-// music
-const audio = new Audio('https://cdn.pixabay.com/download/audio/2023/02/28/audio_26c0b1f01a.mp3?filename=ambient-141125.mp3');
-audio.loop = true; audio.volume = 0.5; audio.muted = true; audio.play().catch(()=>{});
-const musicBtn = document.querySelector('#musicToggle');
-musicBtn?.addEventListener('click', ()=> { audio.muted = !audio.muted; musicBtn.innerText = audio.muted ? '🔇' : '🎵'; });
+  // Dark/Light toggle
+  const saved = localStorage.getItem('theme');
+  if(saved==='light'){ root.classList.add('light'); body.classList.add('light'); }
+  const toggle = qs('#themeToggle');
+  if(toggle){
+    toggle.addEventListener('click', ()=>{
+      const isLight = root.classList.toggle('light');
+      body.classList.toggle('light', isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      toggle.classList.toggle('light', isLight);
+    });
+  }
 
-// dropdown (services)
-const dd = document.querySelector('#servicesDD');
-const ddmenu = document.querySelector('#servicesMenu');
-dd?.addEventListener('click', (e)=>{ e.stopPropagation(); ddmenu.classList.toggle('open'); });
-document.addEventListener('click', ()=> ddmenu?.classList.remove('open'));
+  // Background music (muted until user interaction)
+  const music = qs('#bgMusic');
+  const musicBtn = qs('#musicToggle');
+  let userInteracted = false;
+  const updateMusicUI = ()=>{ if(musicBtn){ musicBtn.textContent = music.muted || music.paused ? '🔇' : '🎵'; } };
+  if(music){
+    music.volume = 0.25;
+    music.muted = true; // required to start in most browsers
+    // try to play muted in the background (no error if blocked)
+    music.play().catch(()=>{});
+    updateMusicUI();
+    if(musicBtn){
+      musicBtn.addEventListener('click', ()=>{
+        userInteracted = true;
+        if(music.paused){ music.play(); }
+        music.muted = !music.muted;
+        updateMusicUI();
+      });
+    }
+    // Unmute after first user interaction (optional)
+    window.addEventListener('pointerdown', ()=>{ if(!userInteracted){ userInteracted=true; updateMusicUI(); } }, {once:true});
+  }
 
-// lightbox
-const lb = document.querySelector('#lightbox');
-const lbimg = document.querySelector('#lightbox img');
-document.querySelectorAll('[data-lightbox]').forEach(el=>{
-  el.addEventListener('click', ()=>{ lbimg.src = el.getAttribute('data-lightbox'); lb.style.display='flex'; });
-});
-lb?.addEventListener('click', ()=> lb.style.display='none');
+  // Lightbox
+  const lb = qs('.lightbox');
+  const lbImg = qs('.lightbox img');
+  qa('[data-lightbox]').forEach(el=>{
+    el.addEventListener('click', e=>{
+      e.preventDefault();
+      const src = el.getAttribute('href') || el.getAttribute('src');
+      lbImg.src = src;
+      lb.classList.add('open');
+    });
+  });
+  if(lb){ lb.addEventListener('click', ()=> lb.classList.remove('open')); }
 
-// scroll arrows
-const toTop = document.querySelector('#toTop');
-const toBottom = document.querySelector('#toBottom');
-toTop?.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-toBottom?.addEventListener('click', ()=> window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'}));
+  // Scroll arrows
+  const toTop = qs('#toTop'), toBottom = qs('#toBottom');
+  if(toTop){ toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'})); }
+  if(toBottom){ toBottom.addEventListener('click', ()=> window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'})); }
+
+  // Simple CAPTCHA (contact page)
+  const capQ = qs('#capQ'), capA = qs('#capA'), capErr = qs('#capErr'), form = qs('#contactForm');
+  if(capQ && capA && form){
+    const a = 2 + Math.floor(Math.random()*5), b = 3 + Math.floor(Math.random()*6);
+    capQ.textContent = `${a} + ${b} = ?`;
+    form.addEventListener('submit', (e)=>{
+      if(parseInt(capA.value,10)!==(a+b)){
+        e.preventDefault();
+        capErr.textContent = 'Please solve the math question correctly.';
+      }
+    });
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:.1});
+  qa('.reveal').forEach(el=>observer.observe(el));
+})();
