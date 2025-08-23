@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio — TBC</title><link rel="stylesheet" href="/assets/css/main.css?v=1.0.0"></head><body>
+
+<nav>
+  <div class="brand">
+    <a href="/index.html"><img src="assets/images/flame.gif" alt="TBC Flame" /></a>
+    <div class="name">Total Business Concepts</div>
+    <span class="tag" style="margin-left:10px">Web • IT • PM</span>
+  </div>
+  <div class="menu">
+    <a class="btn btn-outline" href="/index.html">Home</a>
+    <a class="btn btn-outline" href="/about.html">Our Story</a>
+    <div style="position:relative">
+      <button id="servicesDD" class="btn btn-outline">Services ▾</button>
+      <div id="servicesMenu" class="card" style="display:none;position:absolute;right:0;top:46px;width:260px">
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/website-design.html">Website Design & Dev</a>
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/it-consulting.html">IT Consulting</a>
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/project-management.html">Project Management</a>
+        <a class="btn btn-outline" style="width:100%" href="/pages/services/digital-marketing.html">Digital Marketing</a>
+      </div>
+      <script>document.getElementById('servicesMenu').classList.add('dropdown'); document.querySelector('#servicesMenu').style.display='none'; document.querySelector('#servicesMenu').classList.toggle = function(){};</script>
+    </div>
+    <a class="btn" href="/portfolio/index.html">Portfolio</a>
+    <a class="btn btn-outline" href="/contact.html">Contact</a>
+    <button id="themeToggle" class="btn btn-outline" title="Theme">☾/☀︎</button>
+    <button id="musicToggle" class="btn" title="Music">🔇</button>
+  </div>
+</nav>
+<div id="lightbox" class="lightbox"><img src="" alt="preview"/></div>
+<div id="toTop" class="arrow">↑</div>
+<div id="toBottom" class="arrow">↓</div>
+<script>
+const sm = document.getElementById('servicesMenu');
+const sdd = document.getElementById('servicesDD');
+if(sdd) sdd.onclick = (e)=>{ e.stopPropagation(); sm.style.display = sm.style.display==='block'?'none':'block'; };
+document.addEventListener('click',()=>{ if(sm) sm.style.display='none'; });
+</script>
+
+<div class="section">
+  <h1>Portfolio</h1>
+  <p class="caption">A selection of recent work aligned to our core services.</p>
+  <div class="gallery">
+    <div class="tile"><a href="/pages/projects/project1.html"><img src="/assets/images/project1.jpg" data-lightbox="/assets/images/project1.jpg" alt="Project 1"></a><div class="cap">High-Impact Corporate Websites</div></div><div class="tile"><a href="/pages/projects/project2.html"><img src="/assets/images/project2.jpg" data-lightbox="/assets/images/project2.jpg" alt="Project 2"></a><div class="cap">Revenue-Driven E-Commerce Platforms</div></div><div class="tile"><a href="/pages/projects/project3.html"><img src="/assets/images/project3.jpg" data-lightbox="/assets/images/project3.jpg" alt="Project 3"></a><div class="cap">Custom CMS Solutions</div></div><div class="tile"><a href="/pages/projects/project4.html"><img src="/assets/images/project4.jpg" data-lightbox="/assets/images/project4.jpg" alt="Project 4"></a><div class="cap">Mobile-Optimized Business Apps</div></div><div class="tile"><a href="/pages/projects/project5.html"><img src="/assets/images/project5.jpg" data-lightbox="/assets/images/project5.jpg" alt="Project 5"></a><div class="cap">SEO & Performance Optimization</div></div><div class="tile"><a href="/pages/projects/project6.html"><img src="/assets/images/project6.jpg" data-lightbox="/assets/images/project6.jpg" alt="Project 6"></a><div class="cap">Seamless Cloud Migration</div></div><div class="tile"><a href="/pages/projects/project7.html"><img src="/assets/images/project7.jpg" data-lightbox="/assets/images/project7.jpg" alt="Project 7"></a><div class="cap">Next-Level Cybersecurity</div></div><div class="tile"><a href="/pages/projects/project8.html"><img src="/assets/images/project8.jpg" data-lightbox="/assets/images/project8.jpg" alt="Project 8"></a><div class="cap">Smart ERP & CRM Integration</div></div><div class="tile"><a href="/pages/projects/project9.html"><img src="/assets/images/project9.jpg" data-lightbox="/assets/images/project9.jpg" alt="Project 9"></a><div class="cap">Intelligent Workflow Automation</div></div><div class="tile"><a href="/pages/projects/project10.html"><img src="/assets/images/project10.jpg" data-lightbox="/assets/images/project10.jpg" alt="Project 10"></a><div class="cap">Agile Transformation</div></div><div class="tile"><a href="/pages/projects/project11.html"><img src="/assets/images/project11.jpg" data-lightbox="/assets/images/project11.jpg" alt="Project 11"></a><div class="cap">PMO Excellence</div></div><div class="tile"><a href="/pages/projects/project12.html"><img src="/assets/images/project12.jpg" data-lightbox="/assets/images/project12.jpg" alt="Project 12"></a><div class="cap">Infrastructure Modernization</div></div>
+  </div>
+</div>
+
+<footer class="section">
+  <div>© Total Business Concepts — All rights reserved.</div>
+  <img src="/assets/images/flame.gif" alt="Flame small"/>
+</footer>
+
+<script src="/assets/js/main.js?v=1.0.0"></script>
+</body></html>

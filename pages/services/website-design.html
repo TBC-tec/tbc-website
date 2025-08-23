@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website Design & Development — TBC</title><link rel="stylesheet" href="/assets/css/main.css?v=1.0.0"></head><body>
+
+<nav>
+  <div class="brand">
+    <a href="/index.html"><img src="assets/images/flame.gif" alt="TBC Flame" /></a>
+    <div class="name">Total Business Concepts</div>
+    <span class="tag" style="margin-left:10px">Web • IT • PM</span>
+  </div>
+  <div class="menu">
+    <a class="btn btn-outline" href="/index.html">Home</a>
+    <a class="btn btn-outline" href="/about.html">Our Story</a>
+    <div style="position:relative">
+      <button id="servicesDD" class="btn">Services ▾</button>
+      <div id="servicesMenu" class="card" style="display:none;position:absolute;right:0;top:46px;width:260px">
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/website-design.html">Website Design & Dev</a>
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/it-consulting.html">IT Consulting</a>
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/project-management.html">Project Management</a>
+        <a class="btn btn-outline" style="width:100%" href="/pages/services/digital-marketing.html">Digital Marketing</a>
+      </div>
+      <script>document.getElementById('servicesMenu').classList.add('dropdown'); document.querySelector('#servicesMenu').style.display='none'; document.querySelector('#servicesMenu').classList.toggle = function(){};</script>
+    </div>
+    <a class="btn btn-outline" href="/portfolio/index.html">Portfolio</a>
+    <a class="btn btn-outline" href="/contact.html">Contact</a>
+    <button id="themeToggle" class="btn btn-outline" title="Theme">☾/☀︎</button>
+    <button id="musicToggle" class="btn" title="Music">🔇</button>
+  </div>
+</nav>
+<div id="lightbox" class="lightbox"><img src="" alt="preview"/></div>
+<div id="toTop" class="arrow">↑</div>
+<div id="toBottom" class="arrow">↓</div>
+<script>
+const sm = document.getElementById('servicesMenu');
+const sdd = document.getElementById('servicesDD');
+if(sdd) sdd.onclick = (e)=>{ e.stopPropagation(); sm.style.display = sm.style.display==='block'?'none':'block'; };
+document.addEventListener('click',()=>{ if(sm) sm.style.display='none'; });
+</script>
+
+<div class="section">
+  <h1>Website Design & Development</h1>
+  <div class="grid-3">
+    <div class="card"><p>Memorable, responsive websites and apps engineered for speed, SEO, and conversion.</p><a class="btn" href="/contact.html">Start a Project</a></div>
+    <div class="card"><img src="/assets/images/project1.jpg" style="width:100%;height:260px;object-fit:cover" alt="sample"><p class="caption">Quality you can see. Performance you can feel.</p></div>
+    <div class="card"><ul>
+      <li>Consultative, business‑first approach</li>
+      <li>Clear milestones and communication</li>
+      <li>Post‑launch support</li>
+    </ul></div>
+  </div>
+</div>
+
+<footer class="section">
+  <div>© Total Business Concepts — All rights reserved.</div>
+  <img src="/assets/images/flame.gif" alt="Flame small"/>
+</footer>
+
+<script src="/assets/js/main.js?v=1.0.0"></script>
+</body></html>
