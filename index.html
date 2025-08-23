@@ -1,76 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Total Business Concepts</title>
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="assets/css/site-enhancements.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
 
-  <!-- Theme Toggle -->
-  <button id="themeToggle" aria-label="Switch to light mode" aria-pressed="false">🌓</button>
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress"></div>
 
-  <!-- Navigation -->
-  <header class="nav-inner">
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+  <!-- Floating Particles Canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- Hero with Parallax Background -->
+  <header class="hero">
+    <nav class="site-nav">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+    <div class="hero-content reveal">
+      <h1>Elevate Your Business Presence</h1>
+      <p>Your partner in delivering premium, client-centric digital solutions.</p>
+      <a href="#contact" class="cta-button">Get in Touch</a>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero section reveal">
-    <h1>Welcome to Total Business Concepts</h1>
-    <p>We help small businesses grow with clarity, trust, and results.</p>
-    <a href="#contact" class="cta-button">Get Started</a>
-  </section>
+  <main>
+    <!-- Services Section -->
+    <section id="services" class="reveal">
+      <h2>Our Services</h2>
+      <p>Custom web design, branding, and growth strategy crafted for SMBs.</p>
+      <!-- …more content… -->
+    </section>
 
-  <!-- Services Section -->
-  <section id="services" class="section reveal">
-    <h2>What We Offer</h2>
-    <ul>
-      <li>Brand Strategy</li>
-      <li>Website Design</li>
-      <li>Customer Experience Consulting</li>
-    </ul>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="reveal">
+      <h2>About Us</h2>
+      <p>We combine deep business insight with cutting-edge design to create sites that convert.</p>
+      <!-- …more content… -->
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="cta-final section reveal">
-    <h2>Let’s Talk</h2>
-    <p>Ready to elevate your business? Reach out today.</p>
-    <form id="contactForm">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <div id="capQ"></div>
-      <input id="capA" type="text" placeholder="Answer" required />
-      <div id="capErr" style="color:red;"></div>
-      <button type="submit" class="cta-button">Send Message</button>
-    </form>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="reveal">
+      <h2>Contact</h2>
+      <form action="/submit" method="POST">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+        
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+    </section>
+  </main>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Total Business Concepts. All rights reserved.</p>
   </footer>
 
-  <!-- Scroll Arrows -->
-  <button id="toTop" class="scroll-btn">↑</button>
-  <button id="toBottom" class="scroll-btn">↓</button>
-
-  <!-- Music Toggle -->
-  <button id="musicToggle" aria-label="Mute background music" aria-pressed="false">🔇</button>
-  <audio id="bgMusic" src="assets/music/keys-of-moon-cheer-up(chosic.com).mp3" loop></audio>
-
-  <!-- Lightbox (optional) -->
-  <div class="lightbox"><img src="" alt="Preview" /></div>
-
-  <!-- Scripts -->
-  <script src="assets/js/main.js"></script>
+  <!-- Site Effects JS -->
+  <script src="/assets/js/site-effects.js"></script>
 </body>
 </html>
