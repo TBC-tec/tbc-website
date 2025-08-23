@@ -23,28 +23,58 @@
     });
   }
 
-  // Background music (muted until user interaction)
+  // Background music (muted until user interaction, with fade)
   const music = qs('#bgMusic');
   const musicBtn = qs('#musicToggle');
   let userInteracted = false;
+  const fadeDuration = 500; // ms
+
   const updateMusicUI = ()=>{
     if(musicBtn){
-      musicBtn.textContent = music.muted || music.paused ? '🔇' : '🎵';
+      const isMuted = music.muted || music.paused;
+      musicBtn.textContent = isMuted ? '🔇' : '🎵';
+      musicBtn.setAttribute('aria-pressed', !isMuted);
+      musicBtn.setAttribute('aria-label', isMuted ? 'Unmute background music' : 'Mute background music');
     }
   };
+
+  const fadeAudio = (fadeIn=true)=>{
+    const start = fadeIn ? 0 : music.volume;
+    const end = fadeIn ? 0.25 : 0;
+    const step = (end - start) / (fadeDuration / 50);
+    let vol = start;
+    music.volume = start;
+    const fade = setInterval(()=>{
+      vol += step;
+      music.volume = Math.min(Math.max(vol, 0), 0.25);
+      if((fadeIn && vol >= end) || (!fadeIn && vol <= end)){
+        clearInterval(fade);
+        if(!fadeIn) music.pause();
+      }
+    }, 50);
+  };
+
   if(music){
     music.volume = 0.25;
     music.muted = true;
     music.play().catch(()=>{});
     updateMusicUI();
+
     if(musicBtn){
       musicBtn.addEventListener('click', ()=>{
         userInteracted = true;
-        if(music.paused){ music.play(); }
-        music.muted = !music.muted;
+        if(music.paused){
+          music.play();
+          music.muted = false;
+          fadeAudio(true);
+        } else {
+          fadeAudio(false);
+          music.muted = true;
+        }
         updateMusicUI();
       });
     }
+
     window.addEventListener('pointerdown', ()=>{
       if(!userInteracted){
         userInteracted = true;
@@ -78,7 +108,7 @@
   if(toTop){ toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'})); }
   if(toBottom){ toBottom.addEventListener('click', ()=> window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'})); }
 
-  // Simple CAPTCHA (contact page)
+  // Simple CAPTCHA (contact page) with honeypot
   const capQ = qs('#capQ'), capA = qs('#capA'), capErr = qs('#capErr'), form = qs('#contactForm');
   if(capQ && capA && form){
     const a = 2 + Math.floor(Math.random()*5), b = 3 + Math.floor(Math.random()*6);
