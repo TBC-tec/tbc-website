@@ -73,4 +73,92 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 TBC. All rights reserved
+    <p>&copy; 2025 TBC. All rights reserved.</p>
+  </footer>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href'))
+          .scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <!-- Site effects -->
+  <script src="assets/js/site-effects.js"></script>
+
+  <!-- Background Music Player -->
+  <audio id="bgMusic" src="assets/music/spark-of-inspiration.mp3" preload="auto" loop></audio>
+  <button id="musicToggle" aria-label="Toggle background music" aria-pressed="false">🔇</button>
+
+  <!-- Music Toggle Script with Fade-In & Fade-Out -->
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    let isPlaying = false;
+
+    // Start at zero volume
+    bgMusic.volume = 0;
+
+    function fadeAudio(targetVolume, callback) {
+      const step = 0.05 * (targetVolume > bgMusic.volume ? 1 : -1);
+      const fadeInterval = setInterval(() => {
+        if ((step > 0 && bgMusic.volume < targetVolume) ||
+            (step < 0 && bgMusic.volume > targetVolume)) {
+          bgMusic.volume = Math.min(Math.max(bgMusic.volume + step, 0), 1);
+        } else {
+          clearInterval(fadeInterval);
+          if (callback) callback();
+        }
+      }, 100);
+    }
+
+    musicToggle.addEventListener('click', () => {
+      if (isPlaying) {
+        fadeAudio(0, () => bgMusic.pause());
+        musicToggle.textContent = '🔇';
+        musicToggle.setAttribute('aria-pressed', 'false');
+        isPlaying = false;
+      } else {
+        bgMusic.play().then(() => {
+          fadeAudio(1);
+          musicToggle.textContent = '🔊';
+          musicToggle.setAttribute('aria-pressed', 'true');
+          isPlaying = true;
+        }).catch(err => console.log(err));
+      }
+    });
+
+    // Fade out on page unload for smooth stop
+    window.addEventListener('beforeunload', (event) => {
+      if (isPlaying) {
+        fadeAudio(0);
+      }
+    });
+  </script>
+
+  <!-- Music Toggle Styling -->
+  <style>
+    #musicToggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    #musicToggle:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</body>
+</html>
