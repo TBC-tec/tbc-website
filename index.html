@@ -70,13 +70,21 @@
     height: 44px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--brand1), var(--brand2));
-    color: white;
-    font-size: 20px;
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     z-index: 1000;
-  ">▶️</button>
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  ">
+    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16">
+      <path d="M10.804 8.697L5.196 11.866A.5.5 0 0 1 4.5 11.433V4.567a.5.5 0 0 1 .696-.433l5.608 3.169a.5.5 0 0 1 0 .894z"/>
+    </svg>
+    <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16" style="display:none;">
+      <path d="M5.5 3.5A.5.5 0 0 1 6 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm5 0A.5.5 0 0 1 11 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+    </svg>
+  </button>
 
   <!-- Background Music -->
   <audio id="background-music" loop>
@@ -94,26 +102,4 @@
     document.querySelector('.scroll-down').addEventListener('click', () => {
       const nextSection = document.querySelector('section');
       if (nextSection) {
-        nextSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-
-    // Music toggle
-    const musicToggle = document.getElementById('music-toggle');
-    const music = document.getElementById('background-music');
-    let isPlaying = false;
-
-    musicToggle.addEventListener('click', () => {
-      if (isPlaying) {
-        music.pause();
-        musicToggle.textContent = '▶️';
-      } else {
-        music.play();
-        musicToggle.textContent = '⏸️';
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
-
-</body>
-</html>
+        nextSection.scroll
