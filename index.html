@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Business Name</title>
+  <title>Total Business Concepts</title>
 
-  <!-- Branding & Styles -->
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/site-enhancements.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
-
-  <!-- Fonts & Icons (optional) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -25,7 +23,7 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero section">
-    <h1>Welcome to Your Business</h1>
+    <h1>Welcome to Total Business Concepts</h1>
     <p>We help small businesses grow with clarity, trust, and results.</p>
     <a href="#contact" class="cta-button">Get Started</a>
   </section>
@@ -54,7 +52,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Your Business Name. All rights reserved.</p>
+    <p>&copy; 2025 Total Business Concepts. All rights reserved.</p>
   </footer>
 
   <!-- Scroll Arrows -->
@@ -63,8 +61,32 @@
     <button class="scroll-down" aria-label="Scroll to next section">↓</button>
   </div>
 
-  <!-- Scroll Behavior Script -->
+  <!-- Music Toggle Button -->
+  <button id="music-toggle" aria-label="Toggle music" style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--brand1), var(--brand2));
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+  ">▶️</button>
+
+  <!-- Background Music -->
+  <audio id="background-music" loop>
+    <source src="assets/audio/your-music-file.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Scripts -->
   <script>
+    // Scroll arrows
     document.querySelector('.scroll-up').addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -74,6 +96,22 @@
       if (nextSection) {
         nextSection.scrollIntoView({ behavior: 'smooth' });
       }
+    });
+
+    // Music toggle
+    const musicToggle = document.getElementById('music-toggle');
+    const music = document.getElementById('background-music');
+    let isPlaying = false;
+
+    musicToggle.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        musicToggle.textContent = '▶️';
+      } else {
+        music.play();
+        musicToggle.textContent = '⏸️';
+      }
+      isPlaying = !isPlaying;
     });
   </script>
 
