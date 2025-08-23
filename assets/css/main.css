@@ -40,7 +40,7 @@ body {
   text-decoration: none; color: var(--text);
 }
 .brand img, .brand svg {
-  width: auto; height: 36px; /* bigger, responsive logo */
+  width: auto; height: 36px;
   max-height: 48px;
   display: block;
 }
@@ -56,13 +56,41 @@ body {
   background: rgba(255,255,255,.08);
   color: var(--accent);
 }
+
+/* Button */
 .button {
   background: linear-gradient(135deg, var(--brand1), var(--brand2));
   color: #fff; border: none; padding: 10px 14px; border-radius: 12px; box-shadow: var(--shadow);
   text-decoration: none; font-weight: 600; letter-spacing: .3px;
   transition: .2s transform, .2s filter;
 }
-.button:hover { transform: translateY(-1px); filter: brightness(1.05); }
+.button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Floating Button Variant */
+.button--floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 1000;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.button--floating:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
 
 /* Dropdown */
 .dropdown { position: relative; }
@@ -152,4 +180,5 @@ footer {
   padding: 22px 20px; margin-top: 30px;
 }
 .footer-inner {
-  max-width: 1200px; margin: 0
+  max-width: 1200px; margin: 0 auto;
+}
