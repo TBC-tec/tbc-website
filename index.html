@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Total Business Concepts</title>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/site-enhancements.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/site-enhancements.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle" aria-label="Switch to light mode" aria-pressed="false">🌓</button>
 
   <!-- Navigation -->
   <header class="nav-inner">
@@ -22,14 +23,14 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="hero section">
+  <section id="home" class="hero section reveal">
     <h1>Welcome to Total Business Concepts</h1>
     <p>We help small businesses grow with clarity, trust, and results.</p>
     <a href="#contact" class="cta-button">Get Started</a>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="section">
+  <section id="services" class="section reveal">
     <h2>What We Offer</h2>
     <ul>
       <li>Brand Strategy</li>
@@ -39,13 +40,16 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="cta-final section">
+  <section id="contact" class="cta-final section reveal">
     <h2>Let’s Talk</h2>
     <p>Ready to elevate your business? Reach out today.</p>
-    <form>
+    <form id="contactForm">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
       <textarea placeholder="Your Message" required></textarea>
+      <div id="capQ"></div>
+      <input id="capA" type="text" placeholder="Answer" required />
+      <div id="capErr" style="color:red;"></div>
       <button type="submit" class="cta-button">Send Message</button>
     </form>
   </section>
@@ -56,90 +60,17 @@
   </footer>
 
   <!-- Scroll Arrows -->
-  <div class="scroll-arrows">
-    <button class="scroll-up" aria-label="Scroll to top">↑</button>
-    <button class="scroll-down" aria-label="Scroll to next section">↓</button>
-  </div>
+  <button id="toTop" class="scroll-btn">↑</button>
+  <button id="toBottom" class="scroll-btn">↓</button>
 
-  <!-- Music Toggle Button -->
-  <button id="music-toggle" aria-label="Toggle music" style="
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--brand1), var(--brand2));
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  ">
-    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16">
-      <path d="M10.804 8.697L5.196 11.866A.5.5 0 0 1 4.5 11.433V4.567a.5.5 0 0 1 .696-.433l5.608 3.169a.5.5 0 0 1 0 .894z"/>
-    </svg>
-    <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16" style="display:none;">
-      <path d="M5.5 3.5A.5.5 0 0 1 6 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm5 0A.5.5 0 0 1 11 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
-    </svg>
-  </button>
+  <!-- Music Toggle -->
+  <button id="musicToggle" aria-label="Mute background music" aria-pressed="false">🔇</button>
+  <audio id="bgMusic" src="assets/music/keys-of-moon-cheer-up(chosic.com).mp3" loop></audio>
 
-  <!-- Background Music -->
-  <audio id="background-music" loop>
-    <source src="assets/audio/background.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Lightbox (optional) -->
+  <div class="lightbox"><img src="" alt="Preview" /></div>
 
   <!-- Scripts -->
-  <script>
-    // Scroll arrows
-    document.querySelector('.scroll-up').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    document.querySelector('.scroll-down').addEventListener('click', () => {
-      const nextSection = document.querySelector('section');
-      if (nextSection) {
-        nextSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-
-    // Music toggle
-    const musicToggle = document.getElementById('music-toggle');
-    const music = document.getElementById('background-music');
-    const playIcon = document.getElementById('play-icon');
-    const pauseIcon = document.getElementById('pause-icon');
-    let isPlaying = false;
-
-    music.volume = 0;
-    music.addEventListener('play', () => {
-      let vol = 0;
-      const fadeIn = setInterval(() => {
-        if (vol < 0.8) {
-          vol += 0.02;
-          music.volume = vol;
-        } else {
-          clearInterval(fadeIn);
-        }
-      }, 60);
-    });
-
-    musicToggle.addEventListener('click', () => {
-      if (isPlaying) {
-        music.pause();
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
-      } else {
-        music.play();
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'block';
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
-
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
