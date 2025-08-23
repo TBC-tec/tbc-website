@@ -71,5 +71,14 @@
   <footer>
     <p>&copy; 2025 TBC. All rights reserved.</p>
   </footer>
+  <script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(link.getAttribute('href'))
+        .scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
 </body>
 </html>
