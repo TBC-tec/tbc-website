@@ -191,3 +191,36 @@ footer {
   font-size: 0.9rem;
   color: #777;
 }
+/* --- HC Micro-Enhancement Pack --- */
+
+/* 1. Fade-in animation for sections */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+section {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+section:nth-of-type(1) { animation-delay: 0.1s; }
+section:nth-of-type(2) { animation-delay: 0.3s; }
+section:nth-of-type(3) { animation-delay: 0.5s; }
+section:nth-of-type(4) { animation-delay: 0.7s; }
+section:nth-of-type(5) { animation-delay: 0.9s; }
+
+/* 2. Button hover glow */
+.cta-button, button {
+  box-shadow: 0 0 0 rgba(11,92,255,0);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.cta-button:hover, button:hover {
+  box-shadow: 0 4px 20px rgba(11,92,255,0.4);
+  transform: translateY(-2px);
+}
+
+/* 3. Mobile spacing refinement */
+@media (max-width: 600px) {
+  .hero { min-height: auto; padding: 3rem 1rem; }
+  .cta-final { padding: 2rem 1rem; }
+  section { padding: 2.5rem 1rem; }
+}
