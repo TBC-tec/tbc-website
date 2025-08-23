@@ -8,7 +8,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Apply fadeUp animation with staggered delays */
 section, .section, .hero {
   animation: fadeUp 0.8s ease forwards;
   opacity: 0;
@@ -19,7 +18,6 @@ section, .section, .hero {
 .section:nth-of-type(4) { animation-delay: 0.7s; }
 .section:nth-of-type(5) { animation-delay: 0.9s; }
 
-/* Respect user preference for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   section, .section, .hero {
     animation: none !important;
@@ -28,7 +26,7 @@ section, .section, .hero {
   }
 }
 
-/* Button hover glow and lift */
+/* Button hover glow */
 .cta-button, .button, button {
   box-shadow: 0 0 0 rgba(11,92,255,0);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
@@ -38,37 +36,7 @@ section, .section, .hero {
   transform: translateY(-2px);
 }
 
-/* Scroll arrows container */
-.scroll-arrows {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
-}
-
-/* Arrow buttons */
-.scroll-arrows button {
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.scroll-arrows button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-}
-
-/* Mobile spacing refinement */
+/* Mobile spacing */
 @media (max-width: 600px) {
   .hero { min-height: auto; padding: 3rem 1rem; }
   .cta-final { padding: 2rem 1rem; }
