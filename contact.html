@@ -1,0 +1,82 @@
+
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — TBC</title><link rel="stylesheet" href="/assets/css/main.css?v=1.0.0"></head><body>
+
+<nav>
+  <div class="brand">
+    <a href="/index.html"><img src="assets/images/flame.gif" alt="TBC Flame" /></a>
+    <div class="name">Total Business Concepts</div>
+    <span class="tag" style="margin-left:10px">Web • IT • PM</span>
+  </div>
+  <div class="menu">
+    <a class="btn btn-outline" href="/index.html">Home</a>
+    <a class="btn btn-outline" href="/about.html">Our Story</a>
+    <div style="position:relative">
+      <button id="servicesDD" class="btn btn-outline">Services ▾</button>
+      <div id="servicesMenu" class="card" style="display:none;position:absolute;right:0;top:46px;width:260px">
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/website-design.html">Website Design & Dev</a>
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/it-consulting.html">IT Consulting</a>
+        <a class="btn btn-outline" style="width:100%;margin-bottom:8px" href="/pages/services/project-management.html">Project Management</a>
+        <a class="btn btn-outline" style="width:100%" href="/pages/services/digital-marketing.html">Digital Marketing</a>
+      </div>
+      <script>document.getElementById('servicesMenu').classList.add('dropdown'); document.querySelector('#servicesMenu').style.display='none'; document.querySelector('#servicesMenu').classList.toggle = function(){};</script>
+    </div>
+    <a class="btn btn-outline" href="/portfolio/index.html">Portfolio</a>
+    <a class="btn" href="/contact.html">Contact</a>
+    <button id="themeToggle" class="btn btn-outline" title="Theme">☾/☀︎</button>
+    <button id="musicToggle" class="btn" title="Music">🔇</button>
+  </div>
+</nav>
+<div id="lightbox" class="lightbox"><img src="" alt="preview"/></div>
+<div id="toTop" class="arrow">↑</div>
+<div id="toBottom" class="arrow">↓</div>
+<script>
+const sm = document.getElementById('servicesMenu');
+const sdd = document.getElementById('servicesDD');
+if(sdd) sdd.onclick = (e)=>{ e.stopPropagation(); sm.style.display = sm.style.display==='block'?'none':'block'; };
+document.addEventListener('click',()=>{ if(sm) sm.style.display='none'; });
+</script>
+
+<div class="section">
+  <h1>Contact Us</h1>
+  <div class="grid-3">
+    <div class="card">
+      <form onsubmit="event.preventDefault(); if(parseInt(capt.value)===(a+b)){ alert('Thanks! We will reply to contact@tbc-us.com'); this.reset(); } else { alert('Please solve the CAPTCHA correctly.'); }">
+        <label>Name<br><input required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:inherit"></label><br><br>
+        <label>Email<br><input type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:inherit"></label><br><br>
+        <label>Message<br><textarea required style="width:100%;height:120px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:inherit"></textarea></label><br><br>
+        <div class="card" style="padding:10px">CAPTCHA: <span id="cap"></span>
+          <input id="capt" name="capt" style="width:80px;margin-left:10px;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:inherit">
+        </div><br>
+        <button class="btn">Send Message</button>
+      </form>
+      <script>
+        var a = Math.floor(Math.random()*7)+1, b = Math.floor(Math.random()*7)+1;
+        document.getElementById('cap').innerText = a + ' + ' + b + ' = ?';
+        var capt = document.getElementById('capt');
+      </script>
+    </div>
+    <div class="card">
+      <h3>Email</h3>
+      <p>contact@tbc-us.com</p>
+      <h3>Office</h3>
+      <p>Virtual — Serving clients nationwide</p>
+    </div>
+    <div class="card">
+      <h3>Why TBC?</h3>
+      <ul>
+        <li>Design + engineering in one team</li>
+        <li>Transparent project governance</li>
+        <li>Support after launch</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer class="section">
+  <div>© Total Business Concepts — All rights reserved.</div>
+  <img src="/assets/images/flame.gif" alt="Flame small"/>
+</footer>
+
+<script src="/assets/js/main.js?v=1.0.0"></script>
+</body></html>
