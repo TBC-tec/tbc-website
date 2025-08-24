@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Total Business Concepts</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/contact.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Total Business Concepts</title>
+  <link rel="stylesheet" href="css/base.css" />
 </head>
 <body>
 
-  <header>
-    <!-- header/nav content -->
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="brand">
+        <img src="logo.gif" alt="Total Business Concepts logo" />
+        <span class="name">Total Business Concepts</span>
+      </div>
+      <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+    </nav>
   </header>
 
+  <!-- Main -->
   <main>
-    <!-- contact form and info -->
+    <section class="contact-intro">
+      <h1>Get in Touch</h1>
+      <p>Have questions or ready to start your project? We’d love to hear from you.</p>
+    </section>
+
+    <section class="contact-form">
+      <form action="https://formspree.io/f/yourformid" method="POST">
+        <label>Name<br><input type="text" name="name" required></label>
+        <label>Email<br><input type="email" name="email" required></label>
+        <label>Message<br><textarea name="message" rows="5" required></textarea></label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
   </main>
 
-  <footer>
-    <!-- footer content -->
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Total Business Concepts. All Rights Reserved.</p>
   </footer>
 
-  <audio id="bg-music" src="music/landing-bg.mp3" autoplay loop>
-    Your browser does not support the audio element.
-  </audio>
-
-  <button id="music-toggle" class="music-toggle" aria-label="Toggle music">
-    <svg id="icon-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06a4.996 4.996 0 0 0 2.5-4.03z"/>
-    </svg>
-    <svg id="icon-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none">
-      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06a4.996 4.996 0 0 0 2.5-4.03zM3 10v4h4l5 5V5l-5 5H3zm13.59 2l2.7 2.7-1.42 1.42L15.17 13l-2.7 2.
+</body>
+</html>
