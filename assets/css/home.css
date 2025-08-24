@@ -1,41 +1,48 @@
-/* ===== Home Page Overrides ===== */
+/* =========================
+   HOME PAGE CUSTOM STYLES
+   ========================= */
 
-/* Hero section styling */
+/* ----- Hero section ----- */
 .hero {
   background: url('../images/hero-bg.jpg') center/cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  max-width: 600px;
+  font-size: 1.25rem;
+  max-width: 650px;
   margin: 0 auto 2rem;
 }
 
 .cta-btn {
   display: inline-block;
-  background-color: #005bbb;
+  background-color: #005bbb; /* Primary brand blue */
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 1.8rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-btn:hover {
   background-color: #004899;
+  transform: translateY(-2px);
 }
 
-/* Service cards */
+/* ----- Services section ----- */
 .services-preview {
   display: flex;
   flex-wrap: wrap;
@@ -61,11 +68,21 @@
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-/* Testimonials */
+.service-card h2 {
+  color: #005bbb;
+  margin-bottom: 0.5rem;
+}
+
+/* ----- Testimonials section ----- */
 .testimonials {
   padding: 3rem 1rem;
   text-align: center;
   background-color: #eef2f5;
+}
+
+.testimonials h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
 .testimonials blockquote {
@@ -81,7 +98,7 @@
   color: #555;
 }
 
-/* Music toggle positioning */
+/* ----- Music toggle positioning ----- */
 .music-toggle {
   position: fixed;
   top: 1rem;
@@ -92,17 +109,8 @@
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
   z-index: 9999;
 }
 
 .music-toggle:hover {
-  background: rgba(255,255,255,1);
-}
-
-.music-toggle svg {
-  width: 24px;
-  height: 24px;
-  fill: #333;
-}
-
