@@ -1,240 +1,46 @@
-/* =======================
-   Base Styles – Global
-   ======================= */
-
 /* Reset / Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   background-color: #fff;
   color: #222;
 }
+a { color: inherit; text-decoration: none; }
+a:hover { opacity: 0.85; }
 
-/* Links */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: 0.85;
-}
-
-/* =======================
-   Header + Navigation
-   ======================= */
-
-.header {
-  background: #0a2342; /* Navy base from brand palette */
-  padding: 0.75rem 1.5rem;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.site-logo img {
-  display: block;
-  height: 48px;
-  width: auto;
-}
-
-.name {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #ffffff;
-}
-
-.navlinks {
-  display: flex;
-  gap: 1.5rem;
-}
-
+/* Header / Navigation */
+.header { background: #0a2342; padding: 0.75rem 1.5rem; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.brand { display: flex; align-items: center; gap: 0.75rem; }
+.site-logo img { display: block; height: 48px; width: auto; }
+.name { font-weight: 600; font-size: 1.1rem; color: #fff; }
+.navlinks { display: flex; gap: 1.5rem; }
 .navlinks a {
-  color: #ffffff;
-  font-weight: 500;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
+  color: #fff; font-weight: 500; padding-bottom: 2px;
+  border-bottom: 2px solid transparent; transition: border-color 0.3s ease;
 }
+.navlinks a:hover, .navlinks a.active { border-color: #14a6c8; }
 
-.navlinks a:hover,
-.navlinks a.active {
-  border-color: #14a6c8; /* Teal accent from brand gradient */
-}
-
-/* =======================
-   Hero
-   ======================= */
-
+/* Hero */
 .hero {
   background: linear-gradient(135deg, #0a2342 0%, #14a6c8 100%);
-  color: #fff;
-  padding: 4rem 2rem;
-  text-align: center;
+  color: #fff; padding: 4rem 2rem; text-align: center;
 }
-
-.hero h1 {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto 1.5rem auto;
-}
-
+.hero h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+.hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 1.5rem; }
 .cta-btn {
-  background-color: #ffffff;
-  color: #0a2342;
-  padding: 0.75rem 1.25rem;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #fff; color: #0a2342; padding: 0.75rem 1.25rem;
+  border-radius: 4px; font-weight: 600; transition: background-color 0.3s, color 0.3s;
 }
+.cta-btn:hover { background-color: #14a6c8; color: #fff; }
 
-.cta-btn:hover {
-  background-color: #14a6c8;
-  color: #ffffff;
-}
-
-/* =======================
-   Services Preview
-   ======================= */
-
+/* Services */
 .services-preview {
-  display: grid;
-  gap: 2rem;
+  display: grid; gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  padding: 3rem 2rem;
-  background-color: #f7f9fc;
+  padding: 3rem 2rem; background-color: #f7f9fc;
 }
-
 .service-card {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 6px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.service-card h2 {
-  color: #0a2342;
-  margin-bottom: 0.5rem;
-}
-
-.service-card p {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* =======================
-   Testimonials
-   ======================= */
-
-.testimonials {
-  padding: 3rem 2rem;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.testimonials h2 {
-  color: #0a2342;
-  margin-bottom: 1.5rem;
-}
-
-.testimonials blockquote {
-  font-style: italic;
-  font-size: 1.05rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.testimonials cite {
-  font-size: 0.9rem;
-  color: #888;
-}
-
-/* =======================
-   Footer + Branding
-   ======================= */
-
-.footer {
-  background: #0a2342;
-  color: #ffffff;
-  padding: 2rem;
-  text-align: center;
-}
-
-.footer-branding {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.footer-branding img {
-  display: block;
-  height: 40px;
-  width: auto;
-}
-
-.footer p {
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
-/* =======================
-   Music Toggle Button
-   ======================= */
-
-.music-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255,255,255,0.8);
-  border: none;
-  border-radius: 50%;
-  padding: 0.5rem;
-  cursor: pointer;
-  z-index: 1000;
-  backdrop-filter: blur(6px);
-}
-
-.music-toggle svg {
-  width: 24px;
-  height: 24px;
-  fill: #0a2342;
-}
-
-/* =======================
-   Responsive Tweaks
-   ======================= */
-
-@media (max-width: 768px) {
-  .navlinks {
-    gap: 1rem;
-  }
-  .hero {
-    padding: 3rem 1.25rem;
-  }
-}
+  background: #fff; padding
