@@ -1,0 +1,41 @@
+/* Reset & Base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; color:#333; line-height:1.5; }
+.container { width:90%; max-width:1080px; margin:0 auto; }
+
+/* Header/Nav */
+.site-header { background:#111; }
+.nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+.nav .logo img { height:40px; }
+.nav-links { list-style:none; display:flex; gap:1rem; }
+.nav-links a { color:#fff; text-decoration:none; }
+
+/* Hero */
+.hero-section { display:flex; align-items:center; justify-content:space-between; padding:4rem 0; }
+.hero-content h1 { font-size:2.5rem; color:#f24c3d; }
+.hero-content p { margin:1rem 0; }
+.btn-primary { background:#f2b632; color:#111; padding:0.75rem 1.5rem; text-decoration:none; }
+
+/* Flame Accent */
+.hero-accent { width:120px; animation:float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+/* Services */
+.services-section { padding:3rem 0; text-align:center; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; }
+.service-item img { height:60px; margin-bottom:1rem; }
+
+/* Portfolio */
+.portfolio-section { padding:3rem 0; }
+.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.portfolio-grid img { width:100%; display:block; }
+
+/* Contact */
+.contact-section { padding:3rem 0; }
+.contact-form { display:grid; gap:1rem; max-width:400px; }
+.contact-form label { font-weight:bold; }
+.contact-form input,
+.contact-form textarea { padding:0.5rem; border:1px solid #ccc; }
+
+/* Footer */
+.site-footer { background:#111; color:#fff; text-align:center; padding:1rem 0; margin-top:2rem; }
