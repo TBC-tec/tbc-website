@@ -3,25 +3,21 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact – Total Business Concepts</title>
-  <link rel="stylesheet" href="assets/css/main.css?v=20250822"/>
+  <title>Contact - Total Business Concepts</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <!-- header/nav -->
-  <main class="page-content contact-page">
-    <h2>Contact Us</h2>
-    <form id="contactForm" action="#" method="POST">
-      <label>Name<input type="text" name="name" required/></label>
-      <label>Email<input type="email" name="email" required/></label>
-      <label>Message<textarea name="message" required></textarea></label>
-      <div id="captcha">
-        <span id="num1"></span> + <span id="num2"></span> = 
-        <input type="number" id="captchaAnswer" required/>
-      </div>
-      <button type="submit" class="btn btn-3d">Send Message</button>
-    </form>
-  </main>
-  <!-- footer -->
-  <script src="assets/js/main.js?v=20250822"></script>
+
+  <!-- Hero -->
+  <section id="hero">
+    <h1>Let’s Build Something Exceptional</h1>
+  </section>
+
+  <!-- Contact Form -->
+  <form id="contact-form" action="/send" method="post">
+    <!-- form fields here -->
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+
 </body>
 </html>
