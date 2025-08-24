@@ -1,0 +1,42 @@
+/* Contact Page Styles */
+.page-hero {
+  background: url('../images/contact-hero.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form button {
+  background: #005bbb;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #004899;
+}
+
+@media (max-width: 768px) {
+  .page-hero h1 { font-size: 2rem; }
+}
