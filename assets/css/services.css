@@ -1,0 +1,30 @@
+/* Services Page Styles */
+.page-hero {
+  background: url('../images/services-hero.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.service-item {
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.service-item h2 {
+  color: #005bbb;
+}
+
+@media (max-width: 768px) {
+  .page-hero h1 { font-size: 2rem; }
+}
