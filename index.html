@@ -2,171 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Total Business Concepts</title>
-  <link href="assets/css/main.css" rel="stylesheet" />
-  <link href="assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css?v=20250822"/>
 </head>
-
-<body class="font-sans antialiased text-gray-800">
-
-  <!-- Music Toggle (top-right) -->
-  <button
-    id="music-toggle"
-    class="fixed top-4 right-4 z-50 w-8 h-8 p-1 bg-white rounded-full shadow hover:bg-gray-100 transition"
-    aria-label="Toggle background music"
-  >
-    <!-- Play Icon -->
-    <svg
-      id="music-on"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-6 h-6 text-gray-800"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M9 17V7l12-2v12"></path>
-    </svg>
-    <!-- Mute Icon (hidden by default) -->
-    <svg
-      id="music-off"
-      xmlns="http://www.w3.org/2000/svg"
-      class="hidden w-6 h-6 text-gray-800"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M9 17V7l12-2v12"></path>
-      <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" />
-    </svg>
-  </button>
-
-  <!-- Hero Section -->
-  <section
-    id="hero"
-    class="relative h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-blue-600 to-indigo-700 px-4"
-  >
-    <h1 class="text-5xl font-bold text-white mb-4">
-      Total Business Concepts
-    </h1>
-    <p class="text-xl text-white mb-8">
-      Bridging the gap between vision and growth
-    </p>
-    <a
-      href="#services"
-      class="inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
-    >
-      Our Services
-    </a>
-
-    <!-- Vector Flame Accent -->
-    <img
-      src="assets/images/flame.svg"
-      alt="Decorative flame accent"
-      class="absolute bottom-0 right-0 w-32 opacity-30 pointer-events-none"
-    />
-
-    <!-- Scroll-Down Arrow -->
-    <a
-      href="#services"
-      class="absolute bottom-8 animate-bounce text-white"
-      aria-label="Scroll to services"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 9l-7 7-7-7"
-        />
-      </svg>
-    </a>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold mb-6">Our Services</h2>
-      <p class="text-gray-600 mb-12">
-        Customized solutions to elevate your brand and drive growth.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="text-xl font-semibold mb-2">Brand Strategy</h3>
-          <p class="text-gray-600">
-            A clear roadmap to strengthen your identity and market position.
-          </p>
-        </div>
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="text-xl font-semibold mb-2">Digital Marketing</h3>
-          <p class="text-gray-600">
-            Targeted campaigns that drive traffic, engagement, and conversions.
-          </p>
-        </div>
-        <div class="p-6 bg-gray-50 rounded-lg shadow">
-          <h3 class="text-xl font-semibold mb-2">Web Development</h3>
-          <p class="text-gray-600">
-            Scalable, modern websites delivering top-tier user experiences.
-          </p>
-        </div>
+<body>
+  <header class="site-header">
+    <img src="assets/img/logo.svg" alt="TBC Logo" class="logo"/>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <div class="dropdown">
+        <button id="servicesBtn">Services ▾</button>
+        <ul id="servicesMenu" class="dropdown-menu">
+          <li><a href="services/website-design.html">Website Design</a></li>
+          <li><a href="services/it-consulting.html">IT Consulting</a></li>
+          <li><a href="services/project-management.html">Project Management</a></li>
+          <li><a href="services/digital-marketing.html">Digital Marketing</a></li>
+        </ul>
       </div>
+      <a href="portfolio/index.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <button id="themeToggle" class="icon-btn">🌗</button>
+      <button id="musicToggle" class="icon-btn">♪</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Modern Solutions<br/>for Growing Businesses</h1>
+      <p>Your partner in website design, IT consulting, project management, and digital marketing.</p>
+      <a href="contact.html" class="btn btn-3d">Get Started</a>
+      <a href="portfolio/index.html" class="btn btn-3d">Our Work</a>
     </div>
+    <img src="assets/img/flame.gif" alt="Flame" class="hero-flame"/>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gray-100">
-    <div class="max-w-2xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-6">Get in Touch</h2>
-      <form class="space-y-4">
-        <div>
-          <label for="name" class="block text-gray-700 mb-1">Name</label>
-          <input
-            id="name"
-            type="text"
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-        </div>
-        <div>
-          <label for="email" class="block text-gray-700 mb-1">Email</label>
-          <input
-            id="email"
-            type="email"
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-        </div>
-        <div>
-          <label for="message" class="block text-gray-700 mb-1">Message</label>
-          <textarea
-            id="message"
-            rows="4"
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          class="w-full bg-blue-600 text-white font-semibold px-4 py-3 rounded-lg hover:bg-blue-700 transition"
-        >
-          Send Message
-        </button>
-      </form>
-    </div>
-  </section>
+  <button id="scrollTop" class="scroll-arrow">↑</button>
+  <button id="scrollBottom" class="scroll-arrow">↓</button>
 
-  <!-- Footer -->
-  <footer class="py-6 bg-white">
-    <div class="max-w-4xl mx-auto text-center text-gray-600">
-      © 2025 Total Business Concepts. All rights reserved.
-    </div>
+  <footer class="site-footer">
+    <img src="assets/img/flame.gif" alt="Flame" class="footer-flame"/>
+    <p>&copy; 2025 Total Business Concepts</p>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=20250822"></script>
 </body>
 </html>
