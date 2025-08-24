@@ -1,65 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Story - Total Business Concepts</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/our-story.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Total Business Concepts</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/about.css" />
 </head>
 <body>
 
-  <header>
-    <!-- header/nav content -->
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="brand">
+        <img src="img/logo.gif" alt="Total Business Concepts logo" />
+        <span class="name">Total Business Concepts</span>
+      </div>
+      <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <!-- our story page content -->
+    <section class="about-intro">
+      <h1>Our Story</h1>
+      <p>Founded with a passion for empowering small and medium businesses, Total Business Concepts delivers innovative solutions that inspire trust and fuel growth.</p>
+    </section>
+
+    <section class="about-values">
+      <h2>Our Values</h2>
+      <ul>
+        <li><strong>Integrity</strong> — always doing what’s right for our clients.</li>
+        <li><strong>Innovation</strong> — bringing forward‑thinking strategies to every project.</li>
+        <li><strong>Impact</strong> — driving measurable results for your business.</li>
+      </ul>
+    </section>
   </main>
 
-  <footer>
-    <!-- footer content -->
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Total Business Concepts. All Rights Reserved.</p>
   </footer>
 
-  <audio id="bg-music" src="music/landing-bg.mp3" autoplay loop>
-    Your browser does not support the audio element.
-  </audio>
-
-  <button id="music-toggle" class="music-toggle" aria-label="Toggle music">
-    <svg id="icon-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M3 10v4h4l5 5V5l-5 5H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06a4.996 4.996 0 0 0 2.5-4.03z"/>
-    </svg>
-    <svg id="icon-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none">
-      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06a4.996 4.996 0 0 0 2.5-4.03zM3 10v4h4l5 5V5l-5 5H3zm13.59 2l2.7 2.7-1.42 1.42L15.17 13l-2.7 2.7-1.42-1.42L13.75 12l-2.7-2.7 1.42-1.42L15.17 11l2.7-2.7 1.42 1.42L16.59 12z"/>
-    </svg>
-  </button>
-
-  <script>
-    const audio = document.getElementById('bg-music');
-    const toggleBtn = document.getElementById('music-toggle');
-    const iconOn = document.getElementById('icon-on');
-    const iconOff = document.getElementById('icon-off');
-    audio.volume = 0;
-    let vol = 0;
-    const fadeIn = setInterval(() => {
-      if (vol < 0.4) {
-        vol += 0.02;
-        audio.volume = vol;
-      } else {
-        clearInterval(fadeIn);
-      }
-    }, 200);
-    toggleBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        iconOn.style.display = '';
-        iconOff.style.display = 'none';
-      } else {
-        audio.pause();
-        iconOn.style.display = 'none';
-        iconOff.style.display = '';
-      }
-    });
-  </script>
 </body>
 </html>
