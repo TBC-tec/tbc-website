@@ -1,181 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Total Business Concepts</title>
-
-  <!-- Tailwind CSS -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-    rel="stylesheet"
-  />
-
-  <!-- Lightbox2 CSS -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root { --primary: #4f46e5; }
-    .bg-primary { background-color: var(--primary); }
-    .text-primary { color: var(--primary); }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-gray-900 text-gray-100 antialiased">
+<body>
 
-  <!-- NAVIGATION -->
-  <nav class="flex items-center justify-between px-6 py-4">
-    <a href="index.html" class="flex items-center text-2xl font-bold">
-      <img src="assets/images/tbc-mark.svg" alt="TBC logo" class="h-8 mr-2"/>
-      TBC
-    </a>
-    <ul class="flex space-x-6">
-      <li><a href="#services" class="hover:text-primary">Services</a></li>
-      <li><a href="#portfolio" class="hover:text-primary">Recent Work</a></li>
-      <li><a href="#contact" class="hover:text-primary">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Navigation/Header -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="/" class="logo">
+        <img src="assets/images/tbc-mark.svg" alt="Total Business Concepts logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- HERO -->
-  <section
-    id="hero"
-    class="relative min-h-screen flex items-center justify-center bg-gray-800 text-center px-6 overflow-hidden"
-  >
-    <img
-      src="assets/images/flame.gif"
-      alt=""
-      class="absolute bottom-0 right-0 w-48 opacity-30 pointer-events-none"
-    />
-    <div class="max-w-2xl z-10">
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
-        Practical, results-oriented solutions that accelerate growth.
-      </h1>
-      <a
-        href="#contact"
-        class="mt-6 inline-block bg-primary text-white px-8 py-3 rounded-md hover:bg-indigo-700 transition"
-      >
-        Get in Touch
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section container">
+    <div class="hero-content">
+      <h1>Ignite Your Brand</h1>
+      <p>We craft digital experiences that drive growth and trust.</p>
+      <a href="#contact" class="btn btn-primary">Work with Us</a>
+    </div>
+    <img src="assets/images/flame.gif" alt="" class="hero-accent">
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section container">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <img src="assets/images/strategy-icon.svg" alt="Strategy icon">
+        <h3>Strategy</h3>
+        <p>Data-driven plans to align your business goals with market needs.</p>
+      </div>
+      <div class="service-item">
+        <img src="assets/images/design-icon.svg" alt="Design icon">
+        <h3>Design</h3>
+        <p>Premium visual and UX design that resonates with your audience.</p>
+      </div>
+      <div class="service-item">
+        <img src="assets/images/development-icon.svg" alt="Development icon">
+        <h3>Development</h3>
+        <p>Robust front-end and back-end solutions to power your website.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio-section container">
+    <h2>Recent Work</h2>
+    <p>A few snapshots from our portfolio. Hover to preview — click for details.</p>
+    <div class="portfolio-grid">
+      <a href="portfolio/project1.html">
+        <img src="assets/images/project1.jpg" alt="Project 1 preview">
+      </a>
+      <a href="portfolio/project2.html">
+        <img src="assets/images/project2.jpg" alt="Project 2 preview">
+      </a>
+      <a href="portfolio/project3.html">
+        <img src="assets/images/project3.jpg" alt="Project 3 preview">
+      </a>
+      <a href="portfolio/project4.html">
+        <img src="assets/images/project4.jpg" alt="Project 4 preview">
+      </a>
+      <a href="portfolio/project5.html">
+        <img src="assets/images/project5.jpg" alt="Project 5 preview">
+      </a>
+      <a href="portfolio/project6.html">
+        <img src="assets/images/project6.jpg" alt="Project 6 preview">
+      </a>
+      <a href="portfolio/project7.html">
+        <img src="assets/images/project7.jpg" alt="Project 7 preview">
+      </a>
+      <a href="portfolio/project8.html">
+        <img src="assets/images/project8.jpg" alt="Project 8 preview">
+      </a>
+      <a href="portfolio/project9.html">
+        <img src="assets/images/project9.jpg" alt="Project 9 preview">
+      </a>
+      <a href="portfolio/project10.html">
+        <img src="assets/images/project10.jpg" alt="Project 10 preview">
+      </a>
+      <a href="portfolio/project11.html">
+        <img src="assets/images/project11.jpg" alt="Project 11 preview">
+      </a>
+      <a href="portfolio/project12.html">
+        <img src="assets/images/project12.jpg" alt="Project 12 preview">
       </a>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="py-16 px-6">
-    <div class="max-w-5xl mx-auto text-center mb-12">
-      <h2 class="text-4xl font-bold">Our Services</h2>
-      <p class="mt-4 text-gray-300">
-        Straight to the point — practical, results-oriented solutions that accelerate growth.
-      </p>
-    </div>
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center">
-        <img src="assets/images/t_mark.png" alt="Custom CMS Development" class="mx-auto mb-4 w-12"/>
-        <h3 class="text-xl font-semibold">Custom CMS Development</h3>
-        <p class="mt-2 text-gray-400">
-          Scalable, user-friendly back-ends tailored for your workflow.
-        </p>
-      </div>
-      <div class="text-center">
-        <img src="assets/images/logo.png" alt="E-commerce Optimization" class="mx-auto mb-4 w-12"/>
-        <h3 class="text-xl font-semibold">E-commerce Optimization</h3>
-        <p class="mt-2 text-gray-400">
-          Fast, secure shopping experiences that convert visitors into customers.
-        </p>
-      </div>
-      <div class="text-center">
-        <img src="assets/images/tbc-mark.svg" alt="Cloud Migration" class="mx-auto mb-4 w-12"/>
-        <h3 class="text-xl font-semibold">Cloud Migration</h3>
-        <p class="mt-2 text-gray-400">
-          Seamless transitions to cloud platforms for reliability and scale.
-        </p>
-      </div>
-    </div>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section container">
+    <h2>Get in Touch</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
   </section>
 
-  <!-- RECENT WORK -->
-  <section id="portfolio" class="py-16 px-6 bg-gray-800">
-    <div class="max-w-5xl mx-auto text-center mb-12">
-      <h2 class="text-4xl font-bold">Recent Work</h2>
-      <p class="mt-4 text-gray-300">
-        A few snapshots from our portfolio. Hover to preview — click for details.
-      </p>
-    </div>
-    <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- repeat this block for project1.jpg → project12.jpg -->
-      <figure class="relative group overflow-hidden rounded-lg">
-        <img
-          src="assets/images/project1.jpg"
-          alt="Project 1"
-          class="w-full h-64 object-cover"
-        />
-        <figcaption class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition">
-          <a
-            href="assets/images/project1.jpg"
-            data-lightbox="portfolio"
-            class="px-4 py-2 bg-white text-gray-900 rounded"
-          >
-            Preview
-          </a>
-          <a
-            href="portfolio/project1.html"
-            class="px-4 py-2 bg-primary text-white rounded"
-          >
-            Details
-          </a>
-        </figcaption>
-      </figure>
-      <!-- … up through project12.jpg -->
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-16 px-6">
-    <div class="max-w-xl mx-auto bg-gray-800 rounded-lg p-8">
-      <h2 class="text-3xl font-semibold text-center mb-6">Let's Talk</h2>
-      <form
-        action="https://formspree.io/f/yourformid"
-        method="POST"
-        class="space-y-4"
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          class="w-full p-3 rounded bg-gray-700"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          class="w-full p-3 rounded bg-gray-700"
-          required
-        />
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Your Message"
-          class="w-full p-3 rounded bg-gray-700"
-          required
-        ></textarea>
-        <button
-          type="submit"
-          class="w-full bg-primary text-white p-3 rounded hover:bg-indigo-700 transition"
-        >
-          Send Message
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-6 text-center text-gray-400">
-    © 2025 Total Business Concepts. All rights reserved.
+  <!-- Footer -->
+  <footer class="site-footer container">
+    <p>&copy; 2025 Total Business Concepts. All rights reserved.</p>
+    <ul class="social-links">
+      <li>
+        <a href="https://www.linkedin.com/company/total-business-concepts/" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/tbc_tec" target="_blank" rel="noopener">
+          Twitter
+        </a>
+      </li>
+    </ul>
   </footer>
 
-  <!-- Lightbox2 JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
