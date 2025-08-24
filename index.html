@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Total Business Concepts</title>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <link
     href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
     rel="stylesheet"
@@ -18,9 +18,7 @@
   />
 
   <style>
-    :root {
-      --primary: #4f46e5;
-    }
+    :root { --primary: #4f46e5; }
     .bg-primary { background-color: var(--primary); }
     .text-primary { color: var(--primary); }
   </style>
@@ -29,7 +27,10 @@
 
   <!-- NAVIGATION -->
   <nav class="flex items-center justify-between px-6 py-4">
-    <a href="#" class="text-2xl font-bold">TBC</a>
+    <a href="#" class="flex items-center text-2xl font-bold">
+      <img src="assets/images/tbc-mark.svg" alt="TBC logo" class="h-8 mr-2"/>
+      TBC
+    </a>
     <ul class="flex space-x-6">
       <li><a href="#services" class="hover:text-primary">Services</a></li>
       <li><a href="#portfolio" class="hover:text-primary">Recent Work</a></li>
@@ -38,11 +39,14 @@
   </nav>
 
   <!-- HERO -->
-  <section
-    id="hero"
-    class="min-h-screen flex items-center justify-center bg-gray-800 text-center px-6"
-  >
-    <div class="max-w-2xl">
+  <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gray-800 text-center px-6 overflow-hidden">
+    <!-- flame accent -->
+    <img
+      src="assets/images/flame.gif"
+      alt=""
+      class="absolute bottom-0 right-0 w-48 opacity-30 pointer-events-none"
+    />
+    <div class="max-w-2xl z-10">
       <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
         Practical, results-oriented solutions that accelerate growth.
       </h1>
@@ -66,43 +70,30 @@
 
     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="text-center">
-        <img src="assets/icons/cms.svg" alt="CMS Development" class="mx-auto mb-4 w-12"/>
+        <img src="assets/images/t_mark.png" alt="CMS Development" class="mx-auto mb-4 w-12"/>
         <h3 class="text-xl font-semibold">Custom CMS Development</h3>
         <p class="mt-2 text-gray-400">
           Scalable, user-friendly back-ends tailored for your workflow.
         </p>
-        <a
-          href="#services"
-          class="mt-4 inline-block text-primary hover:underline"
-        >
-          Learn more →
-        </a>
+        <a href="#services" class="mt-4 inline-block text-primary hover:underline">Learn more →</a>
       </div>
+
       <div class="text-center">
-        <img src="assets/icons/ecommerce.svg" alt="E-commerce Optimization" class="mx-auto mb-4 w-12"/>
+        <img src="assets/images/logo.png" alt="E-commerce Optimization" class="mx-auto mb-4 w-12"/>
         <h3 class="text-xl font-semibold">E-commerce Optimization</h3>
         <p class="mt-2 text-gray-400">
           Fast, secure shopping experiences that convert visitors into customers.
         </p>
-        <a
-          href="#services"
-          class="mt-4 inline-block text-primary hover:underline"
-        >
-          Learn more →
-        </a>
+        <a href="#services" class="mt-4 inline-block text-primary hover:underline">Learn more →</a>
       </div>
+
       <div class="text-center">
-        <img src="assets/icons/cloud.svg" alt="Cloud Migration" class="mx-auto mb-4 w-12"/>
+        <img src="assets/images/tbc-mark.svg" alt="Cloud Migration" class="mx-auto mb-4 w-12"/>
         <h3 class="text-xl font-semibold">Cloud Migration</h3>
         <p class="mt-2 text-gray-400">
           Seamless transitions to cloud platforms for reliability and scale.
         </p>
-        <a
-          href="#services"
-          class="mt-4 inline-block text-primary hover:underline"
-        >
-          Learn more →
-        </a>
+        <a href="#services" class="mt-4 inline-block text-primary hover:underline">Learn more →</a>
       </div>
     </div>
   </section>
@@ -117,157 +108,24 @@
     </div>
 
     <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Project 1 -->
+      <!-- Loop these 12 items -->
+      {% for i in (1..12) %}
       <figure class="relative group overflow-hidden rounded-lg">
         <img
-          src="assets/images/project1.jpg"
-          alt="High-Impact Corporate Websites"
+          src="assets/images/project{{ i }}.jpg"
+          alt="Project {{ i }}"
           class="w-full h-64 object-cover"
         />
-        <figcaption
-          class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition"
-        >
-          <a
-            href="assets/images/project1.jpg"
-            data-lightbox="portfolio"
-            class="px-4 py-2 bg-white text-gray-900 rounded"
-          >
+        <figcaption class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition">
+          <a href="assets/images/project{{ i }}.jpg" data-lightbox="portfolio" class="px-4 py-2 bg-white text-gray-900 rounded">
             Preview
           </a>
-          <a
-            href="portfolio/project1.html"
-            class="px-4 py-2 bg-primary text-white rounded"
-          >
+          <a href="portfolio/project{{ i }}.html" class="px-4 py-2 bg-primary text-white rounded">
             Details
           </a>
         </figcaption>
       </figure>
-
-      <!-- Repeat for projects 2–6 -->
-      <figure class="relative group overflow-hidden rounded-lg">
-        <img
-          src="assets/images/project2.jpg"
-          alt="Revenue-Driven E-Commerce Platforms"
-          class="w-full h-64 object-cover"
-        />
-        <figcaption
-          class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition"
-        >
-          <a
-            href="assets/images/project2.jpg"
-            data-lightbox="portfolio"
-            class="px-4 py-2 bg-white text-gray-900 rounded"
-          >
-            Preview
-          </a>
-          <a
-            href="portfolio/project2.html"
-            class="px-4 py-2 bg-primary text-white rounded"
-          >
-            Details
-          </a>
-        </figcaption>
-      </figure>
-
-      <figure class="relative group overflow-hidden rounded-lg">
-        <img
-          src="assets/images/project3.jpg"
-          alt="Custom CMS Solutions"
-          class="w-full h-64 object-cover"
-        />
-        <figcaption
-          class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition"
-        >
-          <a
-            href="assets/images/project3.jpg"
-            data-lightbox="portfolio"
-            class="px-4 py-2 bg-white text-gray-900 rounded"
-          >
-            Preview
-          </a>
-          <a
-            href="portfolio/project3.html"
-            class="px-4 py-2 bg-primary text-white rounded"
-          >
-            Details
-          </a>
-        </figcaption>
-      </figure>
-
-      <figure class="relative group overflow-hidden rounded-lg">
-        <img
-          src="assets/images/project4.jpg"
-          alt="Mobile-Optimized Business Apps"
-          class="w-full h-64 object-cover"
-        />
-        <figcaption
-          class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition"
-        >
-          <a
-            href="assets/images/project4.jpg"
-            data-lightbox="portfolio"
-            class="px-4 py-2 bg-white text-gray-900 rounded"
-          >
-            Preview
-          </a>
-          <a
-            href="portfolio/project4.html"
-            class="px-4 py-2 bg-primary text-white rounded"
-          >
-            Details
-          </a>
-        </figcaption>
-      </figure>
-
-      <figure class="relative group overflow-hidden rounded-lg">
-        <img
-          src="assets/images/project5.jpg"
-          alt="SEO & Performance Optimization"
-          class="w-full h-64 object-cover"
-        />
-        <figcaption
-          class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition"
-        >
-          <a
-            href="assets/images/project5.jpg"
-            data-lightbox="portfolio"
-            class="px-4 py-2 bg-white text-gray-900 rounded"
-          >
-            Preview
-          </a>
-          <a
-            href="portfolio/project5.html"
-            class="px-4 py-2 bg-primary text-white rounded"
-          >
-            Details
-          </a>
-        </figcaption>
-      </figure>
-
-      <figure class="relative group overflow-hidden rounded-lg">
-        <img
-          src="assets/images/project6.jpg"
-          alt="Seamless Cloud Migration"
-          class="w-full h-64 object-cover"
-        />
-        <figcaption
-          class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center space-x-4 transition"
-        >
-          <a
-            href="assets/images/project6.jpg"
-            data-lightbox="portfolio"
-            class="px-4 py-2 bg-white text-gray-900 rounded"
-          >
-            Preview
-          </a>
-          <a
-            href="portfolio/project6.html"
-            class="px-4 py-2 bg-primary text-white rounded"
-          >
-            Details
-          </a>
-        </figcaption>
-      </figure>
+      {% endfor %}
     </div>
   </section>
 
@@ -275,36 +133,11 @@
   <section id="contact" class="py-16 px-6">
     <div class="max-w-xl mx-auto bg-gray-800 rounded-lg p-8">
       <h2 class="text-3xl font-semibold text-center mb-6">Let's Talk</h2>
-      <form
-        action="https://formspree.io/f/yourformid"
-        method="POST"
-        class="space-y-4"
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          class="w-full p-3 rounded bg-gray-700"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          class="w-full p-3 rounded bg-gray-700"
-          required
-        />
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Your Message"
-          class="w-full p-3 rounded bg-gray-700"
-          required
-        ></textarea>
-        <button
-          type="submit"
-          class="w-full bg-primary text-white p-3 rounded hover:bg-indigo-700 transition"
-        >
+      <form action="https://formspree.io/f/yourformid" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-gray-700" required/>
+        <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-700" required/>
+        <textarea name="message" rows="5" placeholder="Your Message" class="w-full p-3 rounded bg-gray-700" required></textarea>
+        <button type="submit" class="w-full bg-primary text-white p-3 rounded hover:bg-indigo-700 transition">
           Send Message
         </button>
       </form>
@@ -317,8 +150,6 @@
   </footer>
 
   <!-- Lightbox2 JS -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"
-  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
