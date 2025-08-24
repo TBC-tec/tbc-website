@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <rect width="200" height="60" fill="#1a1a1a"/>
+  <text x="100" y="37" font-family="Arial, sans-serif" font-size="32" 
+        fill="#f2b632" text-anchor="middle">TBC</text>
+  <path d="M140 20 C150 0, 170 0, 160 20 S150 40, 140 20" fill="#f24c3d"/>
+</svg>
