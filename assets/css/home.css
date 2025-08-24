@@ -1,1 +1,108 @@
+/* ===== Home Page Overrides ===== */
+
+/* Hero section styling */
+.hero {
+  background: url('../images/hero-bg.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: #005bbb;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #004899;
+}
+
+/* Service cards */
+.services-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.service-card {
+  flex: 1 1 250px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: #eef2f5;
+}
+
+.testimonials blockquote {
+  font-size: 1.2rem;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  color: #333;
+}
+
+.testimonials cite {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Music toggle positioning */
+.music-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background 0.2s ease;
+  z-index: 9999;
+}
+
+.music-toggle:hover {
+  background: rgba(255,255,255,1);
+}
+
+.music-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+}
 
