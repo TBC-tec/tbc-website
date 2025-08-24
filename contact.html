@@ -1,63 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Contact • Total Business Concepts</title>
-
-  <!-- Preload & stylesheets -->
-  <link rel="preload" href="assets/css/main.css?v=1" as="style"/>
-  <link rel="stylesheet" href="assets/css/main.css?v=1"/>
-  <link rel="stylesheet" href="assets/css/site-enhancements.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Total Business Concepts</title>
+  <link rel="stylesheet" href="assets/css/main.css?v=20250822"/>
 </head>
- <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio/project1.html">Portfolio</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="contact-section">
-      <h1>Let’s Build Something Great Together</h1>
-      <p>Fill out the form below and we’ll get back to you with a custom quote.</p>
-
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="company">Company Name</label>
-        <input type="text" id="company" name="company" />
-
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="_replyto" required />
-
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" />
-
-        <label for="service">Service You’re Interested In</label>
-        <select id="service" name="service">
-          <option value="web-design">Web Design</option>
-          <option value="branding">Branding</option>
-          <option value="seo">SEO & Marketing</option>
-          <option value="consulting">Consulting</option>
-        </select>
-
-        <label for="details">Project Details</label>
-        <textarea id="details" name="details" rows="5" placeholder="Tell us about your goals, timeline, and budget..."></textarea>
-
-        <button type="submit">Get a Quote</button>
-      </form>
-
-      <p class="alt-contact">
-        Prefer email? Reach us directly at <a href="mailto:contact@tbc-us.com">contact@tbc-us.com</a>
-      </p>
-    </section>
+<body>
+  <!-- header/nav -->
+  <main class="page-content contact-page">
+    <h2>Contact Us</h2>
+    <form id="contactForm" action="#" method="POST">
+      <label>Name<input type="text" name="name" required/></label>
+      <label>Email<input type="email" name="email" required/></label>
+      <label>Message<textarea name="message" required></textarea></label>
+      <div id="captcha">
+        <span id="num1"></span> + <span id="num2"></span> = 
+        <input type="number" id="captchaAnswer" required/>
+      </div>
+      <button type="submit" class="btn btn-3d">Send Message</button>
+    </form>
   </main>
-
-  <footer>
-    <p>&copy; 2025 TBC. All rights reserved.</p>
-  </footer>
-    <script src="assets/js/site-effects.js"></script>
+  <!-- footer -->
+  <script src="assets/js/main.js?v=20250822"></script>
 </body>
 </html>
