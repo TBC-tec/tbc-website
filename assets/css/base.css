@@ -1,158 +1,240 @@
-/* Base reset */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* =======================
+   Base Styles – Global
+   ======================= */
 
-:root {
-  --bg-dark: #1a1a1f;
-  --bg-light: #f5f5f7;
-  --text-light: #ecf0f1;
-  --text-dark: #2c3e50;
-  --accent-teal: #1abc9c;
-  --gradient-start: #ff9a9e;
-  --gradient-end: #fad0c4;
+/* Reset / Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  transition: background 0.3s, color 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #222;
 }
 
-/* Dark/Light mode */
-body.light { background: var(--bg-light); color: var(--text-dark); }
-
-/* 3D Button */
-.btn-3d {
-  background: linear-gradient(145deg, var(--gradient-start), var(--gradient-end));
-  border: none;
-  color: var(--text-light);
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  box-shadow:  6px 6px 12px rgba(0,0,0,0.2),
-               -6px -6px 12px rgba(255,255,255,0.1);
-  cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-.btn-3d:active {
-  transform: translateY(2px);
-  box-shadow: 4px 4px 8px rgba(0,0,0,0.2),
-              -4px -4px 8px rgba(255,255,255,0.1);
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Hero */
-.hero {
+a:hover {
+  opacity: 0.85;
+}
+
+/* =======================
+   Header + Navigation
+   ======================= */
+
+.header {
+  background: #0a2342; /* Navy base from brand palette */
+  padding: 0.75rem 1.5rem;
+}
+
+.nav {
   display: flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 4rem;
-  background: linear-gradient(135deg, #2f2f4f, #1a1a1f),
-              url('../img/pattern.svg') repeat;
-  position: relative;
-}
-.hero-flame {
-  width: 150px;
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-  0%,100% { transform: translateY(0);}
-  50% { transform: translateY(-10px);}
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Dropdown */
-.dropdown { position: relative; display:inline-block; }
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background: var(--bg-dark);
-  list-style: none;
-  padding: 1rem;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-logo img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.navlinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navlinks a {
+  color: #ffffff;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.navlinks a:hover,
+.navlinks a.active {
+  border-color: #14a6c8; /* Teal accent from brand gradient */
+}
+
+/* =======================
+   Hero
+   ======================= */
+
+.hero {
+  background: linear-gradient(135deg, #0a2342 0%, #14a6c8 100%);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.cta-btn {
+  background-color: #ffffff;
+  color: #0a2342;
+  padding: 0.75rem 1.25rem;
   border-radius: 4px;
-}
-.dropdown-menu li { margin: 0.5rem 0; }
-.dropdown-menu li a { color: var(--text-light); text-decoration:none; }
-.dropdown.open .dropdown-menu { display:block; }
-
-/* Gallery */
-.gallery .grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap:1rem;
-}
-.gallery img {
-  width:100%;
-  transition: transform 0.3s;
-}
-.gallery img:hover { transform: scale(1.05); }
-
-/* Scroll arrows */
-.scroll-arrow {
-  position:fixed;
-  right:1rem;
-  background: linear-gradient(145deg, var(--gradient-end), var(--gradient-start));
-  border:none; color:#fff; padding:0.5rem;
-  border-radius:50%; cursor:pointer;
-}
-#scrollTop { bottom:4rem; }
-#scrollBottom { bottom:1rem; }
-
-/* Contact form */
-.contact-page form {
-  display:flex; flex-direction:column; gap:1rem; max-width:400px; margin:2rem auto;
-}
-.contact-page label { display:flex; flex-direction:column; color:var(--text-light);}
-.contact-page input, .contact-page textarea {
-  padding:0.5rem; border:none; border-radius:4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Responsive */
-@media(max-width:600px){
-  .hero { flex-direction:column; text-align:center;}
-  .hero-flame { width:100px; }
+.cta-btn:hover {
+  background-color: #14a6c8;
+  color: #ffffff;
 }
 
-/* More utility and theme styles… */
+/* =======================
+   Services Preview
+   ======================= */
 
+.services-preview {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  padding: 3rem 2rem;
+  background-color: #f7f9fc;
+}
 
-/* Reset & Base */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; color:#333; line-height:1.5; }
-.container { width:90%; max-width:1080px; margin:0 auto; }
+.service-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
 
-/* Header/Nav */
-.site-header { background:#111; }
-.nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
-.nav .logo img { height:40px; }
-.nav-links { list-style:none; display:flex; gap:1rem; }
-.nav-links a { color:#fff; text-decoration:none; }
+.service-card h2 {
+  color: #0a2342;
+  margin-bottom: 0.5rem;
+}
 
-/* Hero */
-.hero-section { display:flex; align-items:center; justify-content:space-between; padding:4rem 0; }
-.hero-content h1 { font-size:2.5rem; color:#f24c3d; }
-.hero-content p { margin:1rem 0; }
-.btn-primary { background:#f2b632; color:#111; padding:0.75rem 1.5rem; text-decoration:none; }
+.service-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
 
-/* Flame Accent */
-.hero-accent { width:120px; animation:float 3s ease-in-out infinite; }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+/* =======================
+   Testimonials
+   ======================= */
 
-/* Services */
-.services-section { padding:3rem 0; text-align:center; }
-.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; }
-.service-item img { height:60px; margin-bottom:1rem; }
+.testimonials {
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+  text-align: center;
+}
 
-/* Portfolio */
-.portfolio-section { padding:3rem 0; }
-.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
-.portfolio-grid img { width:100%; display:block; }
+.testimonials h2 {
+  color: #0a2342;
+  margin-bottom: 1.5rem;
+}
 
-/* Contact */
-.contact-section { padding:3rem 0; }
-.contact-form { display:grid; gap:1rem; max-width:400px; }
-.contact-form label { font-weight:bold; }
-.contact-form input,
-.contact-form textarea { padding:0.5rem; border:1px solid #ccc; }
+.testimonials blockquote {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
 
-/* Footer */
-.site-footer { background:#111; color:#fff; text-align:center; padding:1rem 0; margin-top:2rem; }
+.testimonials cite {
+  font-size: 0.9rem;
+  color: #888;
+}
 
+/* =======================
+   Footer + Branding
+   ======================= */
+
+.footer {
+  background: #0a2342;
+  color: #ffffff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-branding img {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* =======================
+   Music Toggle Button
+   ======================= */
+
+.music-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+.music-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: #0a2342;
+}
+
+/* =======================
+   Responsive Tweaks
+   ======================= */
+
+@media (max-width: 768px) {
+  .navlinks {
+    gap: 1rem;
+  }
+  .hero {
+    padding: 3rem 1.25rem;
+  }
+}
