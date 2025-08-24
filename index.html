@@ -1,31 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Total Business Concepts</title>
-  <!-- Updated CSS paths to match repo -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/home.css">
+
+  <!-- CSS Paths fixed -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
-  <!-- === EXISTING CONTENT START === -->
-  <header>
-    <!-- your existing header/hero content -->
+  <!-- === HEADER / NAVIGATION === -->
+  <header class="header">
+    <nav class="nav">
+      <div class="brand">
+        <img src="img/logo.gif" alt="Total Business Concepts logo" />
+        <span class="name">Total Business Concepts</span>
+      </div>
+      <div class="navlinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
   </header>
 
+  <!-- === HERO SECTION === -->
   <main>
-    <!-- all existing sections -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Empowering Your Business Potential</h1>
+        <p>Solutions that inspire trust, drive growth, and deliver measurable results.</p>
+        <a href="services.html" class="cta-btn">Explore Services</a>
+      </div>
+    </section>
+
+    <!-- === SERVICES PREVIEW === -->
+    <section class="services-preview">
+      <div class="service-card">
+        <h2>Consulting</h2>
+        <p>Expert insights and strategy tailored to your goals.</p>
+      </div>
+      <div class="service-card">
+        <h2>Brand Development</h2>
+        <p>Crafting a visual and verbal identity that resonates with customers.</p>
+      </div>
+      <div class="service-card">
+        <h2>Digital Solutions</h2>
+        <p>Modern, responsive websites built to convert visitors into clients.</p>
+      </div>
+    </section>
+
+    <!-- === CLIENT TESTIMONIALS === -->
+    <section class="testimonials">
+      <h2>What Our Clients Say</h2>
+      <blockquote>
+        “Total Business Concepts transformed our online presence. Our leads have doubled.”
+      </blockquote>
+      <cite>— SMB Owner, Houston</cite>
+    </section>
   </main>
 
-  <footer>
-    <!-- your existing footer -->
+  <!-- === FOOTER === -->
+  <footer class="footer">
+    <p>&copy; 2025 Total Business Concepts. All Rights Reserved.</p>
   </footer>
-  <!-- === EXISTING CONTENT END === -->
 
-  <!-- === ADDED: Background Music + Toggle === -->
-  <!-- Updated music path to match repo -->
+  <!-- === BACKGROUND MUSIC + TOGGLE === -->
   <audio id="bg-music" src="music/landing-bg.mp3" autoplay loop>
     Your browser does not support the audio element.
   </audio>
@@ -41,6 +84,7 @@
     </svg>
   </button>
 
+  <!-- === SCRIPT === -->
   <script>
     const audio = document.getElementById('bg-music');
     const toggleBtn = document.getElementById('music-toggle');
