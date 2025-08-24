@@ -4,31 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Total Business Concepts</title>
-
-  <!-- CSS Paths fixed -->
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
-  <!-- === HEADER / NAVIGATION === -->
+  <!-- Header -->
   <header class="header">
     <nav class="nav">
       <div class="brand">
-        <img src="img/logo.gif" alt="Total Business Concepts logo" />
+        <img src="logo.gif" alt="Total Business Concepts logo" />
         <span class="name">Total Business Concepts</span>
       </div>
       <div class="navlinks">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
+        <a href="our-story.html">Our Story</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </div>
     </nav>
   </header>
 
-  <!-- === HERO SECTION === -->
+  <!-- Main -->
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
         <h1>Empowering Your Business Potential</h1>
@@ -37,7 +37,7 @@
       </div>
     </section>
 
-    <!-- === SERVICES PREVIEW === -->
+    <!-- Services preview -->
     <section class="services-preview">
       <div class="service-card">
         <h2>Consulting</h2>
@@ -45,7 +45,7 @@
       </div>
       <div class="service-card">
         <h2>Brand Development</h2>
-        <p>Crafting a visual and verbal identity that resonates with customers.</p>
+        <p>Visual and verbal identity that resonates with customers.</p>
       </div>
       <div class="service-card">
         <h2>Digital Solutions</h2>
@@ -53,7 +53,7 @@
       </div>
     </section>
 
-    <!-- === CLIENT TESTIMONIALS === -->
+    <!-- Testimonials -->
     <section class="testimonials">
       <h2>What Our Clients Say</h2>
       <blockquote>
@@ -63,12 +63,12 @@
     </section>
   </main>
 
-  <!-- === FOOTER === -->
+  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 Total Business Concepts. All Rights Reserved.</p>
   </footer>
 
-  <!-- === BACKGROUND MUSIC + TOGGLE === -->
+  <!-- Background music + toggle (home page only) -->
   <audio id="bg-music" src="music/landing-bg.mp3" autoplay loop>
     Your browser does not support the audio element.
   </audio>
@@ -84,7 +84,6 @@
     </svg>
   </button>
 
-  <!-- === SCRIPT === -->
   <script>
     const audio = document.getElementById('bg-music');
     const toggleBtn = document.getElementById('music-toggle');
